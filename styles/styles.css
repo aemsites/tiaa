@@ -229,7 +229,8 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  padding: 80px;
+  margin: 0;
 }
 
 main > .section > div {

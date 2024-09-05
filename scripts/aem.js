@@ -383,10 +383,10 @@ function decorateButtons(element) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
       if (!a.querySelector('img')) {
-        if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
-          a.className = 'button'; // default
-          up.classList.add('button-container');
-        }
+        // if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
+        //   a.className = 'button'; // default
+        //   up.classList.add('button-container');
+        // }
         if (
           up.childNodes.length === 1
           && up.tagName === 'STRONG'
@@ -453,7 +453,10 @@ function decorateSections(main) {
         const wrapper = document.createElement('div');
         wrappers.push(wrapper);
         defaultContent = e.tagName !== 'DIV';
-        if (defaultContent) wrapper.classList.add('default-content-wrapper');
+        if (defaultContent) {
+          wrapper.classList.add('default-content-wrapper');
+          wrapper.classList.add('container');
+        }
       }
       wrappers[wrappers.length - 1].append(e);
     });
@@ -595,6 +598,7 @@ function decorateBlock(block) {
   const shortBlockName = block.classList[0];
   if (shortBlockName) {
     block.classList.add('block');
+    if (block.closest('main')) block.classList.add('container');
     block.dataset.blockName = shortBlockName;
     block.dataset.blockStatus = 'initialized';
     wrapTextNodes(block);
