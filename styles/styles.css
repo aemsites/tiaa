@@ -43,6 +43,12 @@
 
 /* fallback fonts */
 @font-face {
+  font-family: "tiaa-challenger-fallback";
+  size-adjust: 91.909%;
+  src: local("Arial");
+}
+
+@font-face {
     font-family: roboto-condensed-fallback;
     size-adjust: 88.82%;
     src: local("Arial");

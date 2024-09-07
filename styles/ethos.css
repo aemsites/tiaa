@@ -56,7 +56,7 @@
 }
 
 .ethos-2-theme {
-    --qui-alias-typography-jumbo-jumbo-1-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-jumbo-jumbo-1-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-jumbo-jumbo-1-font-fontWeight: 900;
     --qui-alias-typography-jumbo-jumbo-1-font-lineHeight: 115%;
@@ -82,7 +82,7 @@
         --qui-typography-font-size-168,
         10.5rem
     );
-    --qui-alias-typography-jumbo-jumbo-2-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-jumbo-jumbo-2-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-jumbo-jumbo-2-font-fontWeight: 900;
     --qui-alias-typography-jumbo-jumbo-2-font-lineHeight: 115%;
@@ -108,7 +108,7 @@
         --qui-typography-font-size-144,
         9rem
     );
-    --qui-alias-typography-jumbo-jumbo-3-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-jumbo-jumbo-3-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-jumbo-jumbo-3-font-fontWeight: 900;
     --qui-alias-typography-jumbo-jumbo-3-font-lineHeight: 115%;
@@ -134,7 +134,7 @@
         --qui-typography-font-size-120,
         7.5rem
     );
-    --qui-alias-typography-jumbo-jumbo-4-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-jumbo-jumbo-4-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-jumbo-jumbo-4-font-fontWeight: 900;
     --qui-alias-typography-jumbo-jumbo-4-font-lineHeight: 115%;
@@ -180,13 +180,13 @@
         --qui-typography-font-size-88,
         5.5rem
     );
-    --qui-alias-typography-jumbo-jumbo-5-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-jumbo-jumbo-5-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-jumbo-jumbo-5-font-fontWeight: 900;
     --qui-alias-typography-jumbo-jumbo-5-font-lineHeight: 115%;
     --qui-alias-typography-jumbo-jumbo-5-font-letterSpacing: 0.0625rem;
     --qui-alias-typography-jumbo-jumbo-5-font-textCase: none;
-    --qui-alias-typography-display-regular-1-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-regular-1-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-display-regular-1-font-fontWeight: 600;
     --qui-alias-typography-display-regular-1-font-lineHeight: 120%;
@@ -212,7 +212,7 @@
         --qui-typography-font-size-80,
         5rem
     );
-    --qui-alias-typography-display-regular-2-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-regular-2-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-display-regular-2-font-fontWeight: 600;
     --qui-alias-typography-display-regular-2-font-lineHeight: 120%;
@@ -238,7 +238,7 @@
         --qui-typography-font-size-64,
         4rem
     );
-    --qui-alias-typography-display-regular-3-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-regular-3-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-display-regular-3-font-fontWeight: 600;
     --qui-alias-typography-display-regular-3-font-lineHeight: 120%;
@@ -264,7 +264,7 @@
         --qui-typography-font-size-48,
         3rem
     );
-    --qui-alias-typography-display-regular-4-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-regular-4-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-display-regular-4-font-fontWeight: 600;
     --qui-alias-typography-display-regular-4-font-lineHeight: 120%;
@@ -290,7 +290,7 @@
         --qui-typography-font-size-40,
         2.5rem
     );
-    --qui-alias-typography-display-regular-5-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-regular-5-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback"
         Arial, sans-serif;
     --qui-alias-typography-display-regular-5-font-fontWeight: 600;
     --qui-alias-typography-display-regular-5-font-lineHeight: 120%;
@@ -336,13 +336,13 @@
         --qui-typography-font-size-80,
         5rem
     );
-    --qui-alias-typography-display-strong-1-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-strong-1-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-display-strong-1-font-fontWeight: 900;
     --qui-alias-typography-display-strong-1-font-lineHeight: 115%;
     --qui-alias-typography-display-strong-1-font-letterSpacing: 0.0625rem;
     --qui-alias-typography-display-strong-1-font-textCase: none;
-    --qui-alias-typography-display-strong-2-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-strong-2-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-display-strong-2-font-fontWeight: 900;
     --qui-alias-typography-display-strong-2-font-lineHeight: 115%;
@@ -368,7 +368,7 @@
         --qui-typography-font-size-64,
         4rem
     );
-    --qui-alias-typography-display-strong-3-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-strong-3-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-display-strong-3-font-fontWeight: 900;
     --qui-alias-typography-display-strong-3-font-lineHeight: 115%;
@@ -394,7 +394,7 @@
         --qui-typography-font-size-48,
         3rem
     );
-    --qui-alias-typography-display-strong-4-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-strong-4-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-display-strong-4-font-fontWeight: 900;
     --qui-alias-typography-display-strong-4-font-lineHeight: 115%;
@@ -420,7 +420,7 @@
         --qui-typography-font-size-40,
         2.5rem
     );
-    --qui-alias-typography-display-strong-5-font-fontFamily: "TIAA Challenger",
+    --qui-alias-typography-display-strong-5-font-fontFamily: "TIAA Challenger", "tiaa-challenger-fallback",
         Arial, sans-serif;
     --qui-alias-typography-display-strong-5-font-fontWeight: 900;
     --qui-alias-typography-display-strong-5-font-lineHeight: 115%;
@@ -952,7 +952,7 @@
     --qui-spacing-128: 8rem;
     --qui-spacing-neg8: -0.5rem;
     --qui-spacing-neg16: -1rem;
-    --qui-typography-font-family-tiaa-challenger: "TIAA Challenger", Arial,
+    --qui-typography-font-family-tiaa-challenger: "TIAA Challenger", "tiaa-challenger-fallback", Arial,
         sans-serif;
     --qui-typography-font-family-ringside-narrow: "Ringside Narrow", Arial,
         sans-serif;
