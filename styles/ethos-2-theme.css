@@ -20055,3 +20055,121 @@ a > .ethos-2-theme code {
 .ethos-2-theme .qui-cta .qui-icon svg[color="default"] {
     color: inherit;
 }
+
+/* AEM */
+.ethos-2-theme {
+  --new-primary-union: #041459;
+  --new-primary-white: #FFFFFF;
+  --qui-color-union-blue-700: #020b31;
+  --qui--font-weights--family-1-2: 375;
+  --qui-color-laurel-slate-700: #001b21;
+  --qui-size-width-100: 100%;
+  --qui-size-width-8: .5rem;
+  --qui-size-width-6: .375rem;
+  --qui-size-width-5: .3125rem;
+  --qui-size-width-3: .1875rem;
+  --qui-size-width-2: .0125rem;
+  --qui-size-width-1: .0625rem;
+  --qui-size-height-6: .375rem;
+  --qui-spacing-22: 1.375rem;
+  --qui-size-height-100: 100%;
+  --qui-overflow-hidden: hidden;
+  --qui-text-transform-uppercase: uppercase;
+  --qui-size-width-120: 7.5rem;
+  --qui-size-height-120: 7.5rem;
+  --qui-spacing-4: .25rem;
+  --qui-spacing-5: .3125rem;
+  --qui-spacing-8: .5rem;
+  --qui-spacing-14: .75rem;
+  --qui-spacing-36: 2.25rem;
+  --qui-spacing-84: 5.25rem;
+  --qui-spacing-100: 6.25rem;
+  --qui-spacing-120: 7.5rem;
+  --qui-spacing-150: 9.375rem;
+  --qui-spacing-130: 8.125rem;
+  --qui-spacing-180: 11.25rem;
+  --qui-spacing-160: 10rem;
+  --qui-spacing-212: 13.25rem;
+  --qui-content-justify-center: center;
+  --qui-content-justify-end: end;
+  --qui-content-display-flex: flex;
+  --qui-content-display-block: block;
+  --qui-content-display-flex-column: column;
+  --qui-content-flex-direction-row: row;
+  --qui-content-align-items: flex-start;
+  --qui-size-auto: auto;
+  --qui-position-absolute: absolute;
+  --qui-position-relative: relative;
+  --qui-position-fixed: fixed;
+  --qui-position-sticky: sticky;
+  --qui-object-fit-cover: cover;
+  --qui-object-fit-contain: contain;
+  --qui-content-align-items-center: center;
+  --qui-opacity-0: 0;
+  --qui-opacity-1: 1;
+  --qui-visibility-hidden: hidden;
+  --qui-visibility-visible: visible;
+  --qui-bg-transparent: transparent;
+  --qui-property-unset: unset;
+  --qui-space-between: space-between;
+  --qui-animate-linear: linear;
+  --qui-nav-back-button-border: #DADCE6;
+  --aem-text-decoration-none: none;
+  --aem-text-transform-none: none;
+  --aem-border-light-grey: #CCD6D8;
+  --aem-border-light-blue: #36437A;
+  --aem-border-light-green: #335A63;
+  --aem-color-background-brand-subtle-hover: #EAF1FE;
+  --aem-color-union-blue-300: #6D779F;
+  --aem-font-weight-600: 600;
+  --qui-gap-24: 1.5rem;
+  --qui-divider-line-gray: #CDD0DE;
+  --qui-spacing-6: .375rem;
+  --qui-spacing-15: .9375rem;
+  --qui-spacing-28: 1.75rem;
+  --qui-spacing-8-percent: 8.33333333%;
+  --qui-spacing-213: 13.3125rem;
+  --qui-spacing-236: 14.75rem;
+  --qui-spacing-18: 1.125rem;
+  --qui-chapter-intro-max-height: 900px;
+  --qui-chapter-intro-max-height-md-devices: 812px;
+  --qui-chapter-nav-action-card-border-top-laurel-palette: #335A63;
+  --qui-chapter-nav-action-card-border-top-union-palette: #36437A;
+  --qui-chapter-nav-action-card-border-top-default-palette: #CDD0DE;
+  --qui-border-radius-24: 1.5rem;
+  --qui-size-1: 1px;
+  --qui-size-3: 3px;
+  --qui-size-w-h-290: 290px;
+  --qui-size-w-h-1440: 1440px;
+  --qui-size-64: 64px;
+  --qui-size-80: 80px;
+  --qui-table-scroll-bar: #C1C1C1;
+  --qui-line-height-normal: normal
+}
+
+.ethos-2-theme .container {
+  padding: var(--qui-spacing-0);
+}
+
+@media (min-width: 960px) and (max-width: 1279px) {
+  .ethos-2-theme .container {
+      width: 100%;
+      max-width: 100%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 959px) {
+  .ethos-2-theme .container {
+      max-width: 959.98px !important;
+  }
+}
+
+.ethos-2-theme .container {
+  padding: var(--qui-spacing-0);
+}
+
+@media (max-width: 599px) {
+  .ethos-2-theme .container {
+      max-width: 100%;
+  }
+}
