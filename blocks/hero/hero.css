@@ -8,40 +8,53 @@ main > .section.hero-container {
     padding: 0;
 }
 
-.hero {
-    position: relative;
-    padding: 40px 24px;
-    min-height: 300px;
-}
-
-/* 
 .hero h1 {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--background-color);
-} */
+    margin-bottom: var(--qui-spacing-0);
+}
 
 .hero > div {
     display: flex;
 }
 
-/* .hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+.hero.container {
+    padding: var(--qui-spacing-0);
 }
 
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-} */
+.hero.pathing-hero h1 {
+    padding-top: var(--qui-spacing-32);
+}
 
-@media (width >= 900px) {
-    .hero {
-        padding: 40px 32px;
+.hero.pathing-hero h2 {
+    padding-top: var(--qui-spacing-80);
+    margin-bottom: var(--qui-spacing-0);
+}
+
+.hero.pathing-hero .hero-image {
+    margin-top: var(--qui-spacing-32);
+    aspect-ratio: 3 / 4;
+    width: 509px;
+    height: 680px;
+    position: var(--qui-position-relative);
+    overflow: var(--qui-overflow-hidden);
+    z-index: 10;
+}
+
+.hero.pathing-hero .hero-group {
+    padding-top: var(--qui-spacing-32);
+}
+
+.hero.standard-hero-overlap {
+    padding-top: var(--qui-spacing-80);
+    padding-bottom: var(--qui-spacing-64);
+}
+
+.hero.standard-hero-overlap .hero-group {
+    padding: var(--qui-spacing-24) var(--qui-spacing-0) var(--qui-spacing-40) var(--qui-spacing-0);
+    padding-bottom: 7.5rem;
+}
+
+@media (width < 600px) {
+    .hero > div {
+        flex-direction: column;
     }
 }
