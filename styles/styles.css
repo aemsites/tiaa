@@ -43,7 +43,7 @@
 
 /* fallback fonts */
 @font-face {
-  font-family: "tiaa-challenger-fallback";
+  font-family: tiaa-challenger-fallback;
   size-adjust: 91.909%;
   src: local("Arial");
 }
