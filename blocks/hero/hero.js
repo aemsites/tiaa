@@ -44,13 +44,8 @@ export default function decorate(block) {
     ),
   );
 
-  const heroText = block.firstElementChild.firstElementChild;
-  const heroImage = block.firstElementChild.lastElementChild;
-
-  heroText.classList.add('hero-text');
-  heroImage.classList.add('hero-image');
-
-  block.firstElementChild.classList.add('grid');
+  const heroText = block.querySelector('.hero-text');
+  const heroImage = block.querySelector('.hero-image');
 
   if (block.classList.contains('standard-hero-overlap')) { // should this the default?
     heroText.classList.add(...'g-col-xl-6 g-col-lg-7 g-col-md-7 g-col-12'.split(' '));
