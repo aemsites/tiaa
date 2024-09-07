@@ -1,6 +1,13 @@
 main > .section.hero-container {
-    padding: 0 80px;
+    padding-top: 0;
+    padding-bottom: 0;
     margin: 0;
+}
+
+@media (width < 960px) {
+    main > .section.hero-container {
+       padding: 0;
+    }
 }
 
 .hero-container .hero-wrapper {
@@ -12,40 +19,157 @@ main > .section.hero-container {
     margin-bottom: var(--qui-spacing-0);
 }
 
-.hero > div {
-    display: flex;
-}
-
 .hero.container {
     padding: var(--qui-spacing-0);
 }
 
+.hero .hero-image .desktop-image {
+    display: none;
+}
+
+@media (width < 600px) {
+    .hero > .grid {
+        gap: var(--qui-spacing-0);
+    }
+
+    .hero .hero-text {
+        padding: var(--qui-spacing-40) var(--qui-spacing-16) var(--qui-spacing-32) var(--qui-spacing-16);
+    }
+}
+
+@media (width >= 600px) {
+    .hero .hero-image .mobile-image {
+        display: none;
+    }
+    
+    .hero .hero-image .desktop-image {
+        display: block;
+    }
+    
+}
+
+/* --- PATHING HERO VARIANT --- */
+@media (width >= 600px) and (width < 960px) {
+    .hero.hero.pathing-hero {
+        padding: var(--qui-spacing-32) var(--qui-spacing-24) var(--qui-spacing-24) var(--qui-spacing-24);
+    }
+}
+
 .hero.pathing-hero h1 {
-    padding-top: var(--qui-spacing-32);
+    padding-top: var(--qui-spacing-16);
+}
+
+@media (width >= 600px) {
+    .hero.pathing-hero h1 {
+        padding-top: var(--qui-spacing-32);
+    }
 }
 
 .hero.pathing-hero h2 {
-    padding-top: var(--qui-spacing-80);
     margin-bottom: var(--qui-spacing-0);
 }
 
-.hero.pathing-hero .hero-image {
-    margin-top: var(--qui-spacing-32);
-    aspect-ratio: 3 / 4;
-    width: 509px;
-    height: 680px;
-    position: var(--qui-position-relative);
-    overflow: var(--qui-overflow-hidden);
-    z-index: 10;
+@media  (width >= 960px) {
+    .hero.pathing-hero h2 {
+        padding-top: var(--qui-spacing-48);
+    }
+}
+
+@media (width >= 1280px) {
+    .hero.pathing-hero h2 {
+        padding-top: var(--qui-spacing-80);
+    }
+}
+
+@media screen and (width < 600px) {
+    .hero.pathing-hero .hero-image {
+        padding-top: var(--qui-spacing-0);
+        margin-top: var(--qui-spacing-0);
+        aspect-ratio: 1 / 1;
+        width: var(--qui-size-width-100);
+        height: var(--qui-size-height-100);
+        position: var(--qui-position-relative);
+        overflow: var(--qui-overflow-hidden);
+    }
+
+    .hero.pathing-hero .hero-image img {
+        max-width: 599px;
+        min-height: var(--qui-size-width-100);
+        min-width: var(--qui-size-width-100);
+        object-fit: var(--qui-object-fit-cover);
+        position: var(--qui-position-absolute);
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+}
+
+@media (width >= 600px) and (width < 960px) {
+    .hero.pathing-hero .hero-image {
+        margin-top: var(--qui-spacing-0);
+        aspect-ratio: 1 / 1;
+        width: 192px;
+        height: 276px;
+        position: var(--qui-position-relative);
+        overflow: var(--qui-overflow-hidden);
+    }
+}
+
+@media (width > 960px) and (width < 1280px) {
+    .hero.pathing-hero .hero-image {
+        margin-top: var(--qui-spacing-32);
+        aspect-ratio: 3 / 4;
+        width: 348px;
+        height: 455px;
+        position: var(--qui-position-relative);
+        overflow: var(--qui-overflow-hidden);
+        z-index: 10;
+    }
+}
+
+@media (width > 1280px) and (width < 1440px) {
+    .hero.pathing-hero .hero-image {
+        margin-top: var(--qui-spacing-32);
+        aspect-ratio: 3 / 2;
+        width: 456px;
+        height: 583px;
+        position: var(--qui-position-relative);
+        overflow: var(--qui-overflow-hidden);
+        z-index: 10;
+    }
+}
+
+@media (width >= 1440px) {
+    .hero.pathing-hero .hero-image {
+        margin-top: var(--qui-spacing-32);
+        aspect-ratio: 3 / 4;
+        width: 509px;
+        height: 680px;
+        position: var(--qui-position-relative);
+        overflow: var(--qui-overflow-hidden);
+        z-index: 10;
+    }
 }
 
 .hero.pathing-hero .hero-group {
-    padding-top: var(--qui-spacing-32);
+    padding-top: var(--qui-spacing-8);
 }
 
+@media (width >= 600px) {
+    .hero.pathing-hero .hero-group {
+        padding-top: var(--qui-spacing-32);
+    }
+}
+
+/* --- STANDARD HERO VARIANT --- */
 .hero.standard-hero-overlap {
     padding-top: var(--qui-spacing-80);
     padding-bottom: var(--qui-spacing-64);
+}
+
+.hero.standard-hero-overlap p:last-child {
+    margin-bottom: var(--qui-spacing-0);
 }
 
 .hero.standard-hero-overlap .hero-group {
@@ -53,8 +177,55 @@ main > .section.hero-container {
     padding-bottom: 7.5rem;
 }
 
+@media (width >= 960px) and (width < 1280px) {
+    .hero.standard-hero-overlap {
+        padding-top: var(--qui-spacing-64);
+        padding-bottom: var(--qui-spacing-48);
+    }
+
+    .hero.standard-hero-overlap .hero-group {
+        padding-bottom: var(--qui-spacing-0);
+    }
+}
+
+@media (width >= 600px) and (width < 960px) {
+    .hero.standard-hero-overlap > .grid {
+        gap: var(--qui-spacing-0);
+    }
+
+    .hero.standard-hero-overlap .hero-text {
+        padding: var(--qui-spacing-40) var(--qui-spacing-16) var(--qui-spacing-32) var(--qui-spacing-24);
+    }
+}
+
+@media (width < 960px) {
+    .hero.standard-hero-overlap {
+        padding: var(--qui-spacing-0);
+    }
+
+    .hero.hero.standard-hero-overlap .hero-group {
+        padding: var(--qui-spacing-8) var(--qui-spacing-0) var(--qui-spacing-0) var(--qui-spacing-0);
+    }
+}
+
 @media (width < 600px) {
-    .hero > div {
-        flex-direction: column;
+    .hero.hero.standard-hero-overlap .hero-image {
+        padding-top: var(--qui-spacing-0);
+        margin-top: var(--qui-spacing-0);
+        aspect-ratio: 3 / 2;
+        width: var(--qui-size-width-100);
+        height: var(--qui-size-height-100);
+        position: var(--qui-position-relative);
+        overflow: var(--qui-overflow-hidden);
+    }
+
+    .hero.hero.standard-hero-overlap .hero-image img {
+        max-width: 599px;
+        min-height: var(--qui-size-width-100);
+        min-width: var(--qui-size-width-100);
+        object-fit: var(--qui-object-fit-cover);
+        position: var(--qui-position-absolute);
+        left: 50%;
+        transform: translate(-50%, 0);
     }
 }

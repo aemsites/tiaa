@@ -38,8 +38,7 @@
     --heading-font-size-xs: 22px;
 
     /* nav height */
-    --nav-height: 0;
-    /* --nav-height: 64px; */
+    --nav-height: 64px;
 }
 
 /* fallback fonts */
@@ -75,6 +74,7 @@
 body {
     display: none;
     margin: 0;
+
     /* background-color: var(--background-color);
     color: var(--text-color);
     font-family: var(--body-font-family);
@@ -117,18 +117,23 @@ h6 {
 h1 {
     font-size: var(--heading-font-size-xxl);
 }
+
 h2 {
     font-size: var(--heading-font-size-xl);
 }
+
 h3 {
     font-size: var(--heading-font-size-l);
 }
+
 h4 {
     font-size: var(--heading-font-size-m);
 }
+
 h5 {
     font-size: var(--heading-font-size-s);
 }
+
 h6 {
     font-size: var(--heading-font-size-xs);
 }
@@ -247,6 +252,30 @@ main > .section {
     margin: 0;
 }
 
+@media (width >= 1280px) and (width < 1440px) {
+  main > .section {
+      padding: var(--qui-spacing-80) var(--qui-spacing-64) var(--qui-spacing-80) var(--qui-spacing-64);
+  }
+}
+
+@media (width >= 960px) and (width < 1280px) {
+  main > .section {
+      padding: var(--qui-spacing-80) var(--qui-spacing-40) var(--qui-spacing-80) var(--qui-spacing-40);
+  }
+}
+
+@media (width >= 600px) and (width < 960px) {
+  main > .section {
+      padding: var(--qui-spacing-40) var(--qui-spacing-24) var(--qui-spacing-40) var(--qui-spacing-24);
+  }
+}
+
+@media (width < 600px) {
+  main > .section {
+      padding: var(--qui-spacing-40) var(--qui-spacing-16) var(--qui-spacing-40) var(--qui-spacing-16);
+  }
+}
+
 main > .section > div {
     max-width: 1200px;
     margin: auto;
@@ -271,7 +300,7 @@ main .section.highlight {
     padding: 40px 0;
 }
 
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
   .ethos-2-theme .container {
       max-width: 1279.98px;
       padding: var(--qui-spacing-0);
