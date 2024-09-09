@@ -46,7 +46,7 @@ function buildAutoBlocks(main) {
     main.querySelectorAll('h3').forEach((h3) => {
       h3.className = 'display-3';
     });
-    main.querySelectorAll('h1>strong,h2>strong,h3>strong').forEach((h) => {
+    main.querySelectorAll('h1>u,h2>u,h3>u').forEach((h) => {
       h.className = 'color-accent-primary';
     });
   } catch (error) {

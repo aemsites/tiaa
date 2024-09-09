@@ -178,6 +178,10 @@ button {
     font: inherit;
 }
 
+u {
+  text-decoration: none;
+}
+
 /* links */
 a:any-link {
     color: var(--link-color);
