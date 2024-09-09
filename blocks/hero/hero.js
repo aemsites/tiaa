@@ -5,15 +5,14 @@ function dynamicMediaOptimisedPicture(src, component, alt, eager) {
   const url = new URL(src, window.location.href);
   url.search = '';
   if (url.pathname.includes(':')) {
-    url.pathname = url.pathname.split(':')[0];
+    [url.pathname] = url.pathname.split(':');
   }
-  console.log(url);
 
   const picture = document.createElement('picture');
   const formats = [
     { type: 'image/webp', format: 'webp' },
     { type: 'image/jpeg', format: 'webp&amp;pscan=5' },
-  ]
+  ];
 
   const pixels = [
     { suffix: '', pixels: 1 },
@@ -21,21 +20,11 @@ function dynamicMediaOptimisedPicture(src, component, alt, eager) {
     { suffix: '-Retina-3x', pixels: 3 },
   ];
 
-  const breakpoints = [ 
-    { 
-      media: "(max-width: 599px)",
-      size: 'ExtraSmall',
-    },
-    { 
-      media: "(max-width: 959px)",
-      size: 'Small',
-    },
-    { media: "(max-width: 1279px)",
-      size: 'Medium',
-    },
-    { media: "(max-width: 1440px)",
-      size: 'Large',
-    },
+  const breakpoints = [
+    { media: '(max-width: 599px)', size: 'ExtraSmall' },
+    { media: '(max-width: 959px)', size: 'Small' },
+    { media: '(max-width: 1279px)', size: 'Medium' },
+    { media: '(max-width: 1440px)', size: 'Large' },
     { size: 'ExtraLarge' },
   ];
 
@@ -55,7 +44,7 @@ function dynamicMediaOptimisedPicture(src, component, alt, eager) {
   img.setAttribute('src', url.href);
 
   picture.appendChild(img);
-  
+
   return picture;
 }
 
