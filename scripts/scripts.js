@@ -37,18 +37,6 @@ async function loadFonts() {
 function buildAutoBlocks(main) {
   try {
     // buildHeroBlock(main);
-    main.querySelectorAll('h1').forEach((h1) => {
-      h1.className = 'display-strong-1';
-    });
-    main.querySelectorAll('h2').forEach((h2) => {
-      h2.className = 'eyebrow-2 color-accent-tertiary';
-    });
-    main.querySelectorAll('h3').forEach((h3) => {
-      h3.className = 'display-3';
-    });
-    main.querySelectorAll('h1>u,h2>u,h3>u').forEach((h) => {
-      h.className = 'color-accent-primary';
-    });
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -56,6 +44,19 @@ function buildAutoBlocks(main) {
 }
 
 function decorateTIAAContent(main) {
+  main.querySelectorAll('h1').forEach((h1) => {
+    h1.className = 'display-strong-1';
+  });
+  main.querySelectorAll('h2').forEach((h2) => {
+    h2.className = 'eyebrow-2 color-accent-tertiary';
+  });
+  main.querySelectorAll('h3').forEach((h3) => {
+    h3.className = 'display-3';
+  });
+  main.querySelectorAll('h1>u,h2>u,h3>u').forEach((h) => {
+    h.className = 'color-accent-primary';
+  });
+
   main.querySelectorAll('.default-content-wrapper').forEach((content) => {
     const container = document.createElement('div');
     container.classList.add('container');
