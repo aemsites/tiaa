@@ -38,11 +38,22 @@ export default function decorate(block) {
         ...heroConfig.text,
       ),
       div({ class: 'hero-image' },
-        mobileImage, // mobile first always for LHS
-        desktopImage,
+        // mobileImage, // mobile first always for LHS
+        // desktopImage,
       ),
     ),
   );
+
+  block.querySelector('.hero-image').innerHTML = `
+    <picture>
+      <source media="(max-width: 599px)" srcset="https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-ExtraSmall?ts=1710250504138&amp;fmt=pjpeg&amp;pscan=5 1x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-ExtraSmall-Retina-2x?ts=1710250504138&amp;fmt=pjpeg&amp;pscan=5 2x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-ExtraSmall-Retina-3x?ts=1710250504138&amp;fmt=pjpeg&amp;pscan=5 3x">
+      <source media="(max-width: 959px)" srcset="https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-Small?ts=1710250504138&amp;fmt=pjpeg&amp;pscan=5 1x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-Small-Retina-2x?ts=1710250504138&amp;fmt=pjpeg&amp;pscan=5 2x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-Small-Retina-3x?ts=1710250504138&amp;fmt=pjpeg&amp;pscan=5 3x">
+      <source media="(max-width: 1279px)" srcset="https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-Medium?ts=1710250504138&amp;fmt=pjpeg&amp;pscan=5 1x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-Medium-Retina-2x?ts=1710250504138&amp;fmt=pjpeg&amp;pscan=5 2x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-Medium-Retina-3x?ts=1710250504138&amp;fmt=pjpeg&amp;pscan=5 3x">
+      <source media="(max-width: 1440px)" srcset="https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-Large?ts=1710250504139&amp;fmt=pjpeg&amp;pscan=5 1x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-Large-Retina-2x?ts=1710250504139&amp;fmt=pjpeg&amp;pscan=5 2x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-Large-Retina-3x?ts=1710250504139&amp;fmt=pjpeg&amp;pscan=5 3x">
+      <source srcset="https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-ExtraLarge?ts=1710250504139&amp;fmt=pjpeg&amp;pscan=5 1x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-ExtraLarge-Retina-2x?ts=1710250504139&amp;fmt=pjpeg&amp;pscan=5 2x,https://s7d1.scene7.com/is/image/tiaastage/home-page-hero:Hero-With-Children-ExtraLarge-Retina-3x?ts=1710250504139&amp;fmt=pjpeg&amp;pscan=5 3x">
+      <img alt="" fetchpriority="high" title="Hero-home.jpg" class="img-center img-top" src="https://s7d1.scene7.com/is/image/tiaastage/home-page-hero">
+    </picture>
+  `
 
   const heroText = block.querySelector('.hero-text');
   const heroImage = block.querySelector('.hero-image');
