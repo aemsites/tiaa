@@ -113,6 +113,14 @@ export default async function decorate(block) {
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
 
+  // quick workaround to revert the default content decoration
+  fragment.querySelectorAll('.default-content-wrapper').forEach((contentWrapper) => {
+    const container = contentWrapper.querySelector('.container');
+    if (!container) return;
+    contentWrapper.innerHTML = '';
+    contentWrapper.append(...container.children);
+  });
+
   // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');

@@ -455,7 +455,6 @@ function decorateSections(main) {
         defaultContent = e.tagName !== 'DIV';
         if (defaultContent) {
           wrapper.classList.add('default-content-wrapper');
-          wrapper.classList.add('container');
         }
       }
       wrappers[wrappers.length - 1].append(e);
@@ -598,7 +597,6 @@ function decorateBlock(block) {
   const shortBlockName = block.classList[0];
   if (shortBlockName) {
     block.classList.add('block');
-    if (block.closest('main')) block.classList.add('container');
     block.dataset.blockName = shortBlockName;
     block.dataset.blockStatus = 'initialized';
     wrapTextNodes(block);

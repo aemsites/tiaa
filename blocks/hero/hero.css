@@ -5,7 +5,7 @@ main > .section.hero-container {
 }
 
 @media (width < 960px) {
-    main > .section.hero-container {
+    main > .section.hero-container .hero-wrapper {
        padding: 0;
     }
 }

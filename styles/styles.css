@@ -254,48 +254,59 @@ main img {
 
 /* sections */
 main > .section {
-    padding: 80px;
-    margin: 0;
+  margin: 0;
+}
+
+.ethos-2-theme main > .section {
+  padding: var(--qui-spacing-80) var(--qui-spacing-0);
+}
+
+.ethos-2-theme main > .section > div {
+  padding: 0 var(--qui-spacing-80);
 }
 
 @media (width >= 1280px) and (width < 1440px) {
-  main > .section {
-      padding: var(--qui-spacing-80) var(--qui-spacing-64) var(--qui-spacing-80) var(--qui-spacing-64);
+  .ethos-2-theme main > .section {
+    padding: var(--qui-spacing-80) var(--qui-spacing-0);
+  }
+
+  .ethos-2-theme main > .section > div {
+      padding: var(--qui-spacing-0) var(--qui-spacing-64);
   }
 }
 
 @media (width >= 960px) and (width < 1280px) {
-  main > .section {
-      padding: var(--qui-spacing-80) var(--qui-spacing-40) var(--qui-spacing-80) var(--qui-spacing-40);
+  .ethos-2-theme main > .section {
+    padding: var(--qui-spacing-80) var(--qui-spacing-0);
+  }
+
+  .ethos-2-theme main > .section > div {
+      padding: var(--qui-spacing-0) var(--qui-spacing-40);
   }
 }
 
 @media (width >= 600px) and (width < 960px) {
-  main > .section {
-      padding: var(--qui-spacing-40) var(--qui-spacing-24) var(--qui-spacing-40) var(--qui-spacing-24);
+  .ethos-2-theme main > .section {
+    padding: var(--qui-spacing-40) var(--qui-spacing-0);
+  }
+
+  .ethos-2-theme main > .section > div {
+      padding: var(--qui-spacing-0) var(--qui-spacing-24);
   }
 }
 
 @media (width < 600px) {
-  main > .section {
-      padding: var(--qui-spacing-40) var(--qui-spacing-16) var(--qui-spacing-40) var(--qui-spacing-16);
+  .ethos-2-theme main > .section {
+    padding: var(--qui-spacing-40) 0;
   }
-}
 
-main > .section > div {
-    /* max-width: 1200px; */
-    margin: auto;
-    padding: 0 24px;
+  .ethos-2-theme main > .section > div {
+      padding: 0 var(--qui-spacing-16);
+  }
 }
 
 main > .section:first-of-type {
     margin-top: 0;
-}
-
-@media (width >= 900px) {
-    main > .section > div {
-        padding: 0 32px;
-    }
 }
 
 /* section metadata */

@@ -55,6 +55,19 @@ function buildAutoBlocks(main) {
   }
 }
 
+function decorateTIAAContent(main) {
+  main.querySelectorAll('.default-content-wrapper').forEach((content) => {
+    const container = document.createElement('div');
+    container.classList.add('container');
+    container.append(...content.children);
+    content.append(container);
+  });
+
+  main.querySelectorAll('.block').forEach((block) => {
+    block.classList.add('container');
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -67,6 +80,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateTIAAContent(main);
 }
 
 /**
