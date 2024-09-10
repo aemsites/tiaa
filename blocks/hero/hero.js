@@ -48,13 +48,13 @@ export default function decorate(block) {
   const heroImage = block.querySelector('.hero-image');
 
   if (block.classList.contains('standard-hero-overlap')) { // should this the default?
-    heroText.classList.add(...'g-col-xl-6 g-col-lg-7 g-col-md-7 g-col-12'.split(' '));
-    heroImage.classList.add(...'g-col-xl-6 g-col-lg-5 g-col-md-5 g-col-12'.split(' '));
+    heroText.classList.add('g-col-xl-6', 'g-col-lg-7', 'g-col-md-7', 'g-col-12');
+    heroImage.classList.add('g-col-xl-6', 'g-col-lg-5', 'g-col-md-5', 'g-col-12');
   }
 
   if (block.classList.contains('pathing-hero')) {
-    heroText.classList.add(...'g-col-md-7 g-col-sm-7 g-col-12'.split(' '));
-    heroImage.classList.add(...'g-col-md-5 g-col-sm-5 g-col-12'.split(' '));
+    heroText.classList.add('g-col-md-7', 'g-col-sm-7', 'g-col-12');
+    heroImage.classList.add('g-col-md-5', 'g-col-sm-5', 'g-col-12');
   }
 
   let heroGroupLayout = 'g-col-md-10 g-col-12 offset-md-2';
