@@ -18,3 +18,57 @@ footer .footer p {
     padding: 40px 32px 24px;
   }
 }
+
+footer .icon-footer-tia img {
+    width: 135px;
+    height: 35px;
+    margin-bottom: 3rem !important;
+}
+
+footer .icon-apple-app-store img {
+    margin-top: 1rem;
+    width: 135px;
+    height: 45px;
+}
+
+footer .icon-google-play-store img {
+    margin-top: 1rem;
+    margin-left: 120px;
+    width: 162px;
+    height: 45px;
+}
+
+footer .footer-menu.container {
+    padding: 0;
+}
+
+footer .footer-menu ul {
+    box-sizing: border-box;
+    border-bottom: #dee2e6 1px solid;
+    border-top: #dee2e6 1px solid;
+    padding: 24px 0;
+}
+
+footer .footer-menu ul > li {
+    display: inline-block;
+    text-align: left;
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+footer .footer-menu ul > li > a {
+    color: #041459;
+    font-weight: 700;
+}
+
+
+.icon-social-media {
+    margin-right: 20px;
+    height: 20px;
+    width: 20px;
+}
+
+.icon-social-media span > img {
+    height: 20px;
+    width: 20px;
+}
