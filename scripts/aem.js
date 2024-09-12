@@ -427,15 +427,10 @@ function decorateIcon(span, prefix = '', alt = '') {
     const quiIcon = document.createElement('qui-ng-icon');
     quiIcon.classList.add('qui-icon');
 
-    const svg = document.createElement('svg');
-    svg.setAttribute('role', 'img');
-    svg.setAttribute('color', 'null');
-    svg.setAttribute('aria-hidden', 'true');
-    const use = document.createElement('use');
-    use.setAttribute('href', `#${ethosIconName}`);
-
-    svg.append(use);
-    quiIcon.append(svg);
+    // svgs cannot be created with document.createElement
+    quiIcon.innerHTML = `<svg role="img" color="null" aria-hidden="true">
+      <use href="#${toClassName(ethosIconName)}"></use>
+    </svg>`
     span.replaceWith(quiIcon);
     return;
   }

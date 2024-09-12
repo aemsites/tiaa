@@ -104,7 +104,10 @@ function decorateTIAAButtons(main) {
       a.setAttribute('target', '_blank');
       cta.setAttribute('target', '_blank');
       a.title += ' Opens in a new tab';
-
+      const s = document.createElement('span');
+      s.textContent = a.textContent;
+      a.textContent = '';
+      a.appendChild(s);
       a.appendChild(span({ class: 'icon icon-ethos-launch' }));
     }
     a.setAttribute('aria-label', a.title);
@@ -157,6 +160,8 @@ export function decorateMain(main) {
 }
 
 async function loadSprite() {
+  if (document.querySelector('.qui-icon-sprite')) return;
+
   const spriteURL = 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg';
   // const spriteURL = `${window.hlx.codeBasePath}/icons/ethos-sprite.svg`;
 
