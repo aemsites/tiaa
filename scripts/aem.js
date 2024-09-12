@@ -383,6 +383,10 @@ function decorateButtons(element) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
       if (!a.querySelector('img')) {
+        if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
+          a.className = 'button'; // default
+          up.classList.add('button-container');
+        }
         if (
           up.childNodes.length === 1
           && up.tagName === 'STRONG'
@@ -416,6 +420,23 @@ function decorateIcon(span, prefix = '', alt = '') {
   const iconName = Array.from(span.classList)
     .find((c) => c.startsWith('icon-'))
     .substring(5);
+
+  if (iconName.startsWith('ethos')) {
+    span.classList.add('qui-icon');
+    const ethosIconName = iconName.substring(6);
+    const svg = document.createElement('svg');
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('color', 'null');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    const use = document.createElement('use');
+    use.setAttribute('href', `#${ethosIconName}`);
+
+    svg.append(use);
+    span.append(svg);
+    return;
+  }
+
   const img = document.createElement('img');
   img.dataset.iconName = iconName;
   img.src = `${window.hlx.codeBasePath}${prefix}/icons/${iconName}.svg`;
