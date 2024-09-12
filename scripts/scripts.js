@@ -93,7 +93,7 @@ function openInSameTab(url) {
 function decorateTIAAButtons(main) {
   main.querySelectorAll('a').forEach((a) => {
     const openInNewTab = openInSameTab(a.href);
-    
+
     const cta = document.createElement('qui-wc-cta');
     cta.setAttribute('cta-type', 'link');
     cta.setAttribute('href', a.href);
@@ -103,7 +103,7 @@ function decorateTIAAButtons(main) {
     if (!openInNewTab) {
       a.setAttribute('target', '_blank');
       cta.setAttribute('target', '_blank');
-      a.title = a.title + ' Opens in a new tab';
+      a.title += ' Opens in a new tab';
 
       a.appendChild(span({ class: 'icon icon-ethos-launch' }));
     }
@@ -116,7 +116,7 @@ function decorateTIAAButtons(main) {
         a.setAttribute('cta-appearance', 'button');
         a.setAttribute('mat-button', true);
 
-        let aClass = ['mat-flat-button', 'mat-primary'];
+        const aClass = ['mat-flat-button', 'mat-primary'];
         if (a.classList.contains('primary')) {
           cta.setAttribute('variant', 'flat');
         } else {
@@ -134,7 +134,7 @@ function decorateTIAAButtons(main) {
       a.className = '';
       a.setAttribute('cta-appearance', 'link');
     }
-    
+
     a.replaceWith(cta);
     cta.appendChild(a);
   });
@@ -161,7 +161,7 @@ async function loadSprite() {
   const spriteURL = `${window.hlx.codeBasePath}/icons/full-sprite.svg`;
 
   const sprite = document.createElement('div');
-  sprite.setAttribute('svg-src',"https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg");
+  sprite.setAttribute('svg-src', 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg');
   sprite.className = 'qui-icon-sprite';
   sprite.style.display = 'none';
   const response = await fetch(spriteURL);
