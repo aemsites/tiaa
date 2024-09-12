@@ -101,8 +101,8 @@ function decorateTIAAButtons(main) {
         'link',
         href: a.href,
         size: 'medium',
-        class: 'qui-cta'
-      }
+        class: 'qui-cta',
+      },
     );
 
     if (!openInNewTab) {
@@ -110,10 +110,10 @@ function decorateTIAAButtons(main) {
       cta.setAttribute('target', '_blank');
       if (!isPdf(a.href)) {
         a.title += ' Opens in a new tab';
-        a.appendChild(span({ class: 'icon icon-ethos-launch' }))
+        a.appendChild(span({ class: 'icon icon-ethos-launch' }));
       } else {
         a.title += ' Opens PDF';
-        a.appendChild(span({ class: 'icon icon-ethos-document_outline' }))
+        a.appendChild(span({ class: 'icon icon-ethos-document_outline' }));
       }
     }
 
@@ -132,7 +132,7 @@ function decorateTIAAButtons(main) {
         cta.setAttribute('variant', 'stroke');
         aClass.push('mat-stroked-button');
       }
-      a.className = aClass.join(' ')
+      a.className = aClass.join(' ');
     } else {
       a.setAttribute('cta-appearance', 'link');
       cta.setAttribute('cta-appearance', 'link');
