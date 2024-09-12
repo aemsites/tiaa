@@ -410,7 +410,6 @@ function decorateButtons(element) {
   });
 }
 
-
 function sanitiseIconName(name) {
   return typeof name === 'string'
     ? name

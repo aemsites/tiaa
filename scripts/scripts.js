@@ -12,7 +12,7 @@ import {
   loadCSS,
   sampleRUM,
 } from './aem.js';
-import { span } from './dom-helpers.js';
+import { div, domEl, span } from './dom-helpers.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -94,20 +94,25 @@ function decorateTIAAButtons(main) {
   main.querySelectorAll('a').forEach((a) => {
     const openInNewTab = openInSameTab(a.href);
 
-    const cta = document.createElement('qui-wc-cta');
-    cta.setAttribute('cta-type', 'link');
-    cta.setAttribute('href', a.href);
-    cta.setAttribute('size', 'medium');
-    cta.className = 'qui-cta';
+    const cta = domEl(
+      'qui-wc-cta',
+      {
+        'cta-type':
+        'link',
+        href: a.href,
+        size: 'medium',
+        class: 'qui-cta'
+      }
+    );
 
     if (!openInNewTab) {
       a.setAttribute('target', '_blank');
       cta.setAttribute('target', '_blank');
       a.title += ' Opens in a new tab';
       a.appendChild(
-        !isPdf(a.href) ?
-          span({ class: 'icon icon-ethos-launch' }) :
-          span({ class: 'icon icon-ethos-document_outline' }),
+        !isPdf(a.href)
+          ? span({ class: 'icon icon-ethos-launch' })
+          : span({ class: 'icon icon-ethos-document_outline' }),
       );
     }
     a.setAttribute('aria-label', a.title);
@@ -161,14 +166,9 @@ export function decorateMain(main) {
 
 async function loadSprite() {
   if (document.querySelector('.qui-icon-sprite')) return;
-
   const spriteURL = 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg';
-  // const spriteURL = `${window.hlx.codeBasePath}/icons/ethos-sprite.svg`;
-
-  const sprite = document.createElement('div');
-  sprite.setAttribute('class', 'qui-icon-sprite');
-  sprite.setAttribute('svg-src', 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg');
-  sprite.setAttribute('aria-hidden', 'true');
+  
+  const sprite = div({ class: 'qui-icon-sprite', 'svg-src': spriteURL, 'aria-hidden': true });
   sprite.style.display = 'none';
   const response = await fetch(spriteURL);
   sprite.innerHTML = await response.text();
