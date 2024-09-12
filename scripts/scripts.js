@@ -1,5 +1,4 @@
 import {
-  buildBlock,
   loadHeader,
   loadFooter,
   decorateButtons,
@@ -17,17 +16,7 @@ import {
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
- */
-function buildHeroBlock(main) {
-  const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
-    main.prepend(section);
-  }
-}
+main
 
 /**
  * load fonts.css and set a session storage flag
@@ -45,13 +34,39 @@ async function loadFonts() {
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
-function buildAutoBlocks(main) {
+function buildAutoBlocks(/* main */) {
   try {
-    buildHeroBlock(main);
+    // buildHeroBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
+}
+
+function decorateTIAAContent(main) {
+  main.querySelectorAll('h1').forEach((h1) => {
+    h1.className = 'display-strong-1';
+  });
+  main.querySelectorAll('h2').forEach((h2) => {
+    h2.className = 'eyebrow-2 color-accent-tertiary';
+  });
+  main.querySelectorAll('h3').forEach((h3) => {
+    h3.className = 'display-3';
+  });
+  main.querySelectorAll('h1>u,h2>u,h3>u').forEach((h) => {
+    h.className = 'color-accent-primary';
+  });
+
+  main.querySelectorAll('.default-content-wrapper').forEach((content) => {
+    const container = document.createElement('div');
+    container.classList.add('container');
+    container.append(...content.children);
+    content.append(container);
+  });
+
+  main.querySelectorAll('.block').forEach((block) => {
+    block.classList.add('container');
+  });
 }
 
 /**
@@ -66,6 +81,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateTIAAContent(main);
 }
 
 /**
