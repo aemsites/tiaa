@@ -108,39 +108,34 @@ function decorateTIAAButtons(main) {
     if (!openInNewTab) {
       a.setAttribute('target', '_blank');
       cta.setAttribute('target', '_blank');
-      a.title += ' Opens in a new tab';
-      a.appendChild(
-        !isPdf(a.href)
-          ? span({ class: 'icon icon-ethos-launch' })
-          : span({ class: 'icon icon-ethos-document_outline' }),
-      );
+      if (!isPdf(a.href)) {
+        a.title += ' Opens in a new tab';
+        a.appendChild(span({ class: 'icon icon-ethos-launch' }))
+      } else {
+        a.title += ' Opens PDF';
+        a.appendChild(span({ class: 'icon icon-ethos-document_outline' }))
+      }
     }
+
     a.setAttribute('aria-label', a.title);
     cta.setAttribute('qui-aria-label', a.title);
 
     if (a.classList.contains('button')) {
-      if (a.classList.contains('primary') || a.classList.contains('secondary')) {
-        cta.setAttribute('cta-appearance', 'button');
-        a.setAttribute('cta-appearance', 'button');
-        a.setAttribute('mat-button', true);
+      cta.setAttribute('cta-appearance', 'button');
+      a.setAttribute('cta-appearance', 'button');
+      a.setAttribute('mat-button', true);
 
-        const aClass = ['mat-flat-button', 'mat-primary'];
-        if (a.classList.contains('primary')) {
-          cta.setAttribute('variant', 'flat');
-        } else {
-          cta.setAttribute('variant', 'stroke');
-          aClass.push('mat-stroked-button');
-        }
-        a.className = aClass.join(' ');
+      const aClass = ['mat-flat-button', 'mat-primary'];
+      if (a.classList.contains('primary')) {
+        cta.setAttribute('variant', 'flat');
       } else {
-        a.className = '';
-        a.setAttribute('cta-appearance', 'link');
-        cta.setAttribute('cta-appearance', 'link');
-        a.classList.add('standalone');
+        cta.setAttribute('variant', 'stroke');
+        aClass.push('mat-stroked-button');
       }
+      a.className = aClass.join(' ')
     } else {
-      a.className = '';
       a.setAttribute('cta-appearance', 'link');
+      cta.setAttribute('cta-appearance', 'link');
     }
 
     a.replaceWith(cta);
@@ -167,7 +162,7 @@ export function decorateMain(main) {
 async function loadSprite() {
   if (document.querySelector('.qui-icon-sprite')) return;
   const spriteURL = 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg';
-  
+
   const sprite = div({ class: 'qui-icon-sprite', 'svg-src': spriteURL, 'aria-hidden': true });
   sprite.style.display = 'none';
   const response = await fetch(spriteURL);
