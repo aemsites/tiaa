@@ -422,18 +422,21 @@ function decorateIcon(span, prefix = '', alt = '') {
     .substring(5);
 
   if (iconName.startsWith('ethos')) {
-    span.classList.add('qui-icon');
     const ethosIconName = iconName.substring(6);
+
+    const quiIcon = document.createElement('qui-ng-icon');
+    quiIcon.classList.add('qui-icon');
+
     const svg = document.createElement('svg');
     svg.setAttribute('role', 'img');
     svg.setAttribute('color', 'null');
     svg.setAttribute('aria-hidden', 'true');
-    svg.setAttribute('viewBox', '0 0 24 24');
     const use = document.createElement('use');
     use.setAttribute('href', `#${ethosIconName}`);
 
     svg.append(use);
-    span.append(svg);
+    quiIcon.append(svg);
+    span.replaceWith(quiIcon);
     return;
   }
 

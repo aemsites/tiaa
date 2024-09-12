@@ -157,12 +157,13 @@ export function decorateMain(main) {
 }
 
 async function loadSprite() {
-  // const spriteURL = 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg';
-  const spriteURL = `${window.hlx.codeBasePath}/icons/full-sprite.svg`;
+  const spriteURL = 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg';
+  // const spriteURL = `${window.hlx.codeBasePath}/icons/ethos-sprite.svg`;
 
   const sprite = document.createElement('div');
+  sprite.setAttribute('class', 'qui-icon-sprite');
   sprite.setAttribute('svg-src', 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg');
-  sprite.className = 'qui-icon-sprite';
+  sprite.setAttribute('aria-hidden', 'true');
   sprite.style.display = 'none';
   const response = await fetch(spriteURL);
   sprite.innerHTML = await response.text();
