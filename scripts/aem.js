@@ -410,6 +410,15 @@ function decorateButtons(element) {
   });
 }
 
+
+function sanitiseIconName(name) {
+  return typeof name === 'string'
+    ? name
+      .toLowerCase()
+      .replace(/[^0-9a-z_]/gi, '-')
+    : '';
+}
+
 /**
  * Add <img> for icon, prefixed with codeBasePath and optional prefix.
  * @param {Element} [span] span element with icon classes
@@ -429,8 +438,8 @@ function decorateIcon(span, prefix = '', alt = '') {
 
     // svgs cannot be created with document.createElement
     quiIcon.innerHTML = `<svg role="img" color="null" aria-hidden="true">
-      <use href="#${toClassName(ethosIconName)}"></use>
-    </svg>`
+      <use href="#${sanitiseIconName(ethosIconName)}"></use>
+    </svg>`;
     span.replaceWith(quiIcon);
     return;
   }

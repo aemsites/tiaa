@@ -104,11 +104,11 @@ function decorateTIAAButtons(main) {
       a.setAttribute('target', '_blank');
       cta.setAttribute('target', '_blank');
       a.title += ' Opens in a new tab';
-      const s = document.createElement('span');
-      s.textContent = a.textContent;
-      a.textContent = '';
-      a.appendChild(s);
-      a.appendChild(span({ class: 'icon icon-ethos-launch' }));
+      a.appendChild(
+        !isPdf(a.href) ?
+          span({ class: 'icon icon-ethos-launch' }) :
+          span({ class: 'icon icon-ethos-document_outline' }),
+      );
     }
     a.setAttribute('aria-label', a.title);
     cta.setAttribute('qui-aria-label', a.title);
