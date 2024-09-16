@@ -35,8 +35,6 @@ header nav[aria-expanded='true'] {
     display: flex;
     justify-content: space-between;
     gap: 0 32px;
-    max-width: 1279.98px;
-    padding: var(--qui-spacing-0);
   }
 
   header nav[aria-expanded='true'] {
@@ -219,7 +217,7 @@ header nav .nav-sections ul > li > ul > li {
     right: 0;
     top: 100%;
     padding: 16px;
-    background-color: var(--light-color);
+    background-color: var(--qui-alias-color-background-default);
     white-space: initial;
   }
 
