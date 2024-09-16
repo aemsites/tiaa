@@ -12,6 +12,7 @@ import {
   loadCSS,
   sampleRUM,
 } from './aem.js';
+import { div, domEl, span } from './dom-helpers.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -69,6 +70,79 @@ function decorateTIAAContent(main) {
   });
 }
 
+function isPdf(url) {
+  return url.toLowerCase().endsWith('.pdf');
+}
+
+function openInSameTab(url) {
+  if (!url) return true;
+
+  const ancUrl = new URL(url);
+  return (
+    !isPdf(url)
+    && (window.location.hostname === ancUrl.hostname
+      || ancUrl.hostname.toLowerCase() === 'www.tiaa.org'
+      || ancUrl.hostname.toLowerCase() === 'tiaa.com'
+      || ancUrl.hostname.toLowerCase().endsWith('.aem.live')
+      || ancUrl.hostname.toLowerCase().endsWith('.aem.page')
+    )
+    && ancUrl.searchParams.get('target') !== '_blank'
+  );
+}
+
+function decorateTIAAButtons(main) {
+  main.querySelectorAll('a').forEach((a) => {
+    const openInNewTab = openInSameTab(a.href);
+
+    const cta = domEl(
+      'qui-wc-cta',
+      {
+        'cta-type':
+        'link',
+        href: a.href,
+        size: 'medium',
+        class: 'qui-cta',
+      },
+    );
+
+    if (!openInNewTab) {
+      a.setAttribute('target', '_blank');
+      cta.setAttribute('target', '_blank');
+      if (!isPdf(a.href)) {
+        a.title += ' Opens in a new tab';
+        a.appendChild(span({ class: 'icon icon-ethos-launch' }));
+      } else {
+        a.title += ' Opens PDF';
+        a.appendChild(span({ class: 'icon icon-ethos-document_outline' }));
+      }
+    }
+
+    a.setAttribute('aria-label', a.title);
+    cta.setAttribute('qui-aria-label', a.title);
+
+    if (a.classList.contains('button')) {
+      cta.setAttribute('cta-appearance', 'button');
+      a.setAttribute('cta-appearance', 'button');
+      a.setAttribute('mat-button', true);
+
+      const aClass = ['mat-flat-button', 'mat-primary'];
+      if (a.classList.contains('primary')) {
+        cta.setAttribute('variant', 'flat');
+      } else {
+        cta.setAttribute('variant', 'stroke');
+        aClass.push('mat-stroked-button');
+      }
+      a.className = aClass.join(' ');
+    } else {
+      a.setAttribute('cta-appearance', 'link');
+      cta.setAttribute('cta-appearance', 'link');
+    }
+
+    a.replaceWith(cta);
+    cta.appendChild(a);
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -77,11 +151,23 @@ function decorateTIAAContent(main) {
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
+  decorateTIAAButtons(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateTIAAContent(main);
+}
+
+async function loadSprite() {
+  if (document.querySelector('.qui-icon-sprite')) return;
+  const spriteURL = 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg';
+
+  const sprite = div({ class: 'qui-icon-sprite', 'svg-src': spriteURL, 'aria-hidden': true });
+  sprite.style.display = 'none';
+  const response = await fetch(spriteURL);
+  sprite.innerHTML = await response.text();
+  document.body.prepend(sprite);
 }
 
 /**
@@ -96,6 +182,7 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
+    loadSprite(); // after LCP
   }
 
   sampleRUM.enhance();

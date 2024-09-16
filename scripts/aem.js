@@ -383,6 +383,10 @@ function decorateButtons(element) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
       if (!a.querySelector('img')) {
+        if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
+          a.className = 'standalone';
+          up.classList.add('button-container');
+        }
         if (
           up.childNodes.length === 1
           && up.tagName === 'STRONG'
@@ -406,6 +410,14 @@ function decorateButtons(element) {
   });
 }
 
+function sanitiseIconName(name) {
+  return typeof name === 'string'
+    ? name
+      .toLowerCase()
+      .replace(/[^0-9a-z_]/gi, '-')
+    : '';
+}
+
 /**
  * Add <img> for icon, prefixed with codeBasePath and optional prefix.
  * @param {Element} [span] span element with icon classes
@@ -416,6 +428,21 @@ function decorateIcon(span, prefix = '', alt = '') {
   const iconName = Array.from(span.classList)
     .find((c) => c.startsWith('icon-'))
     .substring(5);
+
+  if (iconName.startsWith('ethos')) {
+    const ethosIconName = iconName.substring(6);
+
+    const quiIcon = document.createElement('qui-ng-icon');
+    quiIcon.classList.add('qui-icon');
+
+    // svgs cannot be created with document.createElement
+    quiIcon.innerHTML = `<svg role="img" color="null" aria-hidden="true">
+      <use href="#${sanitiseIconName(ethosIconName)}"></use>
+    </svg>`;
+    span.replaceWith(quiIcon);
+    return;
+  }
+
   const img = document.createElement('img');
   img.dataset.iconName = iconName;
   img.src = `${window.hlx.codeBasePath}${prefix}/icons/${iconName}.svg`;
