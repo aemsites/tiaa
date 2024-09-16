@@ -211,7 +211,7 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
+    display: flex;
     position: absolute;
     left: 0;
     right: 0;
@@ -223,6 +223,11 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > ul {
+    display: flex;
+    flex-flow: column wrap;
   }
 }
 
