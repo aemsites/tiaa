@@ -16,10 +16,6 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
-  footer.querySelectorAll('.section.footer-links a').forEach((e) => {
-    e.classList.add(...['link', 'qui-link', 'standalone', 'icon-right']);
-    e.target = '_blank';
-  });
   footer.querySelectorAll('.section p > em > a').forEach((e) => {
     e.classList.add(...['button', 'secondary']);
   });
