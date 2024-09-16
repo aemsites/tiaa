@@ -168,8 +168,13 @@ export default async function decorate(block) {
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+  // navigation overlay for desktop
+  const navOverlay = document.createElement('div');
+  navOverlay.classList.add('nav-overlay');
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+  navWrapper.append(navOverlay);
   block.append(navWrapper);
 }
