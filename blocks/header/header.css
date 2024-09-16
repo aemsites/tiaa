@@ -226,8 +226,8 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li > ul {
-    display: flex;
     flex-flow: column wrap;
+    gap: 1em;
   }
 }
 
