@@ -160,10 +160,10 @@ export function decorateMain(main) {
 }
 
 function loadEthosDS() {
-  loadScript('lib/ethos/js/runtime.js');
-  loadScript('lib/ethos/js/polyfills.js');
-  loadScript('lib/ethos/js/main.js');
-  loadScript('lib/ethos/js/common.js');
+  loadScript('lib/ethos/js/runtime.js', { deffer: '' });
+  loadScript('lib/ethos/js/polyfills.js', { deffer: '' });
+  loadScript('lib/ethos/js/main.js', { deffer: '' });
+  loadScript('lib/ethos/js/common.js', { deffer: '' });
 }
 
 /**
