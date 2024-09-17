@@ -11,8 +11,9 @@ import {
   loadSections,
   loadCSS,
   sampleRUM,
+  loadScript,
 } from './aem.js';
-import { div, domEl, span } from './dom-helpers.js';
+import { domEl } from './dom-helpers.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -92,7 +93,7 @@ function openInSameTab(url) {
 
 function decorateTIAAButtons(main) {
   main.querySelectorAll('a').forEach((a) => {
-    const openInNewTab = openInSameTab(a.href);
+    const sameTab = openInSameTab(a.href);
 
     const cta = domEl(
       'qui-wc-cta',
@@ -105,41 +106,40 @@ function decorateTIAAButtons(main) {
       },
     );
 
-    if (!openInNewTab) {
-      a.setAttribute('target', '_blank');
+    if (!sameTab) {
       cta.setAttribute('target', '_blank');
       if (!isPdf(a.href)) {
         a.title += ' Opens in a new tab';
-        a.appendChild(span({ class: 'icon icon-ethos-launch' }));
+        cta.setAttribute('icon-name', 'launch');
+        cta.setAttribute('icon-position', 'right');
       } else {
         a.title += ' Opens PDF';
-        a.appendChild(span({ class: 'icon icon-ethos-document_outline' }));
+        cta.setAttribute('icon-name', 'document_outline');
+        cta.setAttribute('icon-position', 'right');
       }
     }
 
-    a.setAttribute('aria-label', a.title);
     cta.setAttribute('qui-aria-label', a.title);
 
     if (a.classList.contains('button')) {
       cta.setAttribute('cta-appearance', 'button');
-      a.setAttribute('cta-appearance', 'button');
-      a.setAttribute('mat-button', true);
 
       const aClass = ['mat-flat-button', 'mat-primary'];
       if (a.classList.contains('primary')) {
         cta.setAttribute('variant', 'flat');
       } else {
         cta.setAttribute('variant', 'stroke');
-        aClass.push('mat-stroked-button');
       }
       a.className = aClass.join(' ');
     } else {
-      a.setAttribute('cta-appearance', 'link');
       cta.setAttribute('cta-appearance', 'link');
+      if (a.classList.contains('standalone')) {
+        cta.setAttribute('appearance', 'standalone');
+      }
     }
 
+    cta.append(...a.childNodes);
     a.replaceWith(cta);
-    cta.appendChild(a);
   });
 }
 
@@ -159,15 +159,13 @@ export function decorateMain(main) {
   decorateTIAAContent(main);
 }
 
-async function loadSprite() {
-  if (document.querySelector('.qui-icon-sprite')) return;
-  const spriteURL = 'https://a.tiaa-cdn.net/public/ui/global/images/qui/ethos-1/qui-icons-sprite.svg';
-
-  const sprite = div({ class: 'qui-icon-sprite', 'svg-src': spriteURL, 'aria-hidden': true });
-  sprite.style.display = 'none';
-  const response = await fetch(spriteURL);
-  sprite.innerHTML = await response.text();
-  document.body.prepend(sprite);
+async function loadEthosDS() {
+  await Promise.allSettled([
+    loadScript('lib/ethos/js/runtime.js'),
+    loadScript('lib/ethos/js/polyfills.js'),
+    loadScript('lib/ethos/js/main.js'),
+    loadScript('lib/ethos/js/common.js'),
+  ]);
 }
 
 /**
@@ -181,8 +179,8 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
-    loadSprite(); // after LCP
+    await loadSection(main.querySelector('.section'), waitForFirstImage); // LCP
+    await loadEthosDS();
   }
 
   sampleRUM.enhance();
