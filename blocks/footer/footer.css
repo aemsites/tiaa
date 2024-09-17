@@ -67,6 +67,17 @@ footer .footer p {
   }
 }
 
+.icon-social-media {
+    margin-right: 30px;
+    height: 20px;
+    width: 20px;
+}
+
+.icon-social-media > img {
+    height: 20px;
+    width: 20px;
+}
+
 footer .icon-tiaa-brand-logo img {
     width: 135px;
     height: 35px;
@@ -106,13 +117,3 @@ footer .footer-row4 ul > li > a {
 }
 
 
-.icon-social-media {
-    margin-right: 20px;
-    height: 20px;
-    width: 20px;
-}
-
-.icon-social-media span > img {
-    height: 20px;
-    width: 20px;
-}
