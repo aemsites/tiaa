@@ -239,10 +239,10 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: flex;
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 40px;
+    right: 40px;
     top: 100%;
-    padding: 16px;
+    padding: var(--qui-spacing-40) var(--qui-spacing-80) var(--qui-spacing-48);
     background-color: var(--qui-alias-color-background-default);
     white-space: initial;
     z-index: 1;
