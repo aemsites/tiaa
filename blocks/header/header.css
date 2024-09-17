@@ -208,8 +208,13 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .nav-drop {
+    display: flex;
     padding-right: 16px;
     cursor: pointer;
+  }
+
+  header nav .nav-sections .nav-drop[aria-expanded='true'] .qui-icon {
+    transform: rotate(180deg);
   }
 
   header nav .nav-sections ul {

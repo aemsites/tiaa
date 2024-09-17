@@ -104,6 +104,28 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * Builds navigation drop elements, which can open a second level of navigation
+ * @param {Element} navElement The target navigation element
+ */
+function buildNavDrop(navElement) {
+  if (!navElement.querySelector('ul')) {
+    return;
+  }
+  
+  navElement.classList.add('nav-drop');
+
+  const navDropIcon = document.createElement('qui-ng-icon');
+  navDropIcon.classList.add('qui-icon');
+
+  // svgs cannot be created with document.createElement
+  navDropIcon.innerHTML = `<svg role="img" size="md" aria-hidden="true">
+    <use href="#chevron_down"></use>
+  </svg>`;
+
+  navElement.append(navDropIcon);
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -144,7 +166,8 @@ export default async function decorate(block) {
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      buildNavDrop(navSection);
+
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
