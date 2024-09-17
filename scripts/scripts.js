@@ -159,13 +159,11 @@ export function decorateMain(main) {
   decorateTIAAContent(main);
 }
 
-async function loadEthosDS() {
-  await Promise.allSettled([
-    loadScript('lib/ethos/js/runtime.js'),
-    loadScript('lib/ethos/js/polyfills.js'),
-    loadScript('lib/ethos/js/main.js'),
-    loadScript('lib/ethos/js/common.js'),
-  ]);
+function loadEthosDS() {
+  loadScript('lib/ethos/js/runtime.js');
+  loadScript('lib/ethos/js/polyfills.js');
+  loadScript('lib/ethos/js/main.js');
+  loadScript('lib/ethos/js/common.js');
 }
 
 /**
@@ -180,7 +178,7 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage); // LCP
-    await loadEthosDS();
+    loadEthosDS();
   }
 
   sampleRUM.enhance();
