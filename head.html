@@ -1,5 +1,26 @@
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <script src="/scripts/aem.js" type="module"></script>
 <script src="/scripts/scripts.js" type="module"></script>
-<link rel="stylesheet" href="/styles/ethos-2-theme.css"/>
-<link rel="stylesheet" href="/styles/styles.css"/>
+<link rel="stylesheet" href="/styles/ethos-2-theme.css" />
+<link rel="stylesheet" href="/styles/styles.css" />
+<script defer src="/content/dam/tiaa/global/js/detectlegacybrowser.js"></script>
+<script>
+  !(function () {
+    (window.isTiaaPublic = !0), (window.isCookieConsent = !1);
+    var o,
+      n = document.cookie.match(
+        new RegExp("(^| )__privaci_cookie_consents=([^;]+)")
+      );
+    (!n || !(o = n[2]) || ((o = JSON.parse(o)).consents && o.consents[100])) &&
+      (window.isCookieConsent = !0);
+  })();
+</script>
+<script
+  defer
+  src="//www.tiaa.org/public/js/tms/config/analytics-publicsites-config-prod.js"
+></script>
+<script src="//cdn.evgnet.com/beacon/tiaabank/prod_tiaa/scripts/evergage.min.js"></script>
+<script
+  src="//js-cdn.dynatrace.com/jstag/165658ccba3/bf40164ces/b7756245fd1dc1dc_complete.js"
+  crossorigin="anonymous"
+></script>
