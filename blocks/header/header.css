@@ -176,8 +176,7 @@ header nav[aria-expanded='true'] .nav-triage {
   header nav .nav-triage {
     flex-flow: row wrap;
     justify-content: flex-end;
-    padding-top: var(--qui-spacing-8);
-    padding-bottom: var(--qui-spacing-8);
+    padding: var(--qui-spacing-8) var(--qui-spacing-40);
     background-color: var(--qui-color-warm-gray-100);
     font-size: var(--qui-typography-font-size-14);
   }
