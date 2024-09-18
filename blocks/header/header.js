@@ -111,7 +111,7 @@ function buildNavDrop(navElement) {
   if (!navElement.querySelector('ul')) {
     return;
   }
-  
+
   navElement.classList.add('nav-drop');
 
   const navDropIcon = document.createElement('qui-ng-icon');
@@ -150,7 +150,7 @@ export default async function decorate(block) {
   nav.classList.add('container');
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['triage', 'brand', 'sections', 'search', 'tools', 'login'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
