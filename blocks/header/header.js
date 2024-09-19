@@ -49,19 +49,23 @@ function closeOnFocusLost(e) {
   }
 }
 
-function openOnKeydown(e) {
+function toggleOnKeydown(e) {
   const focused = document.activeElement;
   const isNavDrop = focused.className === 'nav-drop';
 
   if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
     const dropExpanded = focused.getAttribute('aria-expanded') === 'true';
-    toggleAllNavSubmenus(focused.closest('.nav-submenu'));
+
+    const nav = document.getElementById('nav');
+    const navSubmenus = nav.querySelectorAll('.nav-submenu');
+    toggleAllNavSubmenus(navSubmenus);
+
     focused.setAttribute('aria-expanded', dropExpanded ? 'false' : 'true');
   }
 }
 
 function focusNavSubmenu() {
-  document.activeElement.addEventListener('keydown', openOnKeydown);
+  document.activeElement.addEventListener('keydown', toggleOnKeydown);
 }
 
 /**
@@ -93,6 +97,9 @@ function toggleMenu(nav, submenus, forceExpanded = null) {
   }, []);
 
   if (isDesktop.matches) {
+    // On desktop, we should not keep focus on the whole navigation
+    nav.removeAttribute('tabindex', -1);
+
     navDrops.forEach((drop) => {
       if (!drop.hasAttribute('tabindex')) {
         drop.setAttribute('tabindex', 0);
@@ -100,6 +107,9 @@ function toggleMenu(nav, submenus, forceExpanded = null) {
       }
     });
   } else {
+    // On mobile, keeps focus on the whole navigation for navigating through its content
+    nav.setAttribute('tabindex', -1);
+
     navDrops.forEach((drop) => {
       drop.removeAttribute('tabindex');
       drop.removeEventListener('focus', focusNavSubmenu);
