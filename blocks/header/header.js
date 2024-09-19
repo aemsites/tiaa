@@ -76,7 +76,10 @@ function toggleMenu(nav, submenus, forceExpanded = null) {
 
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSubmenus(submenus, expanded || isDesktop.matches ? 'false' : 'true');
+
+  // Close all submenus on navigation open/close
+  toggleAllNavSubmenus(submenus, 'false');
+
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
 
   // enable nav dropdown keyboard accessibility
@@ -118,8 +121,9 @@ function toggleMenu(nav, submenus, forceExpanded = null) {
 /**
  * Builds navigation drop elements, which can open a second level of navigation
  * @param {Element} navElement The target navigation element
+ * @param {Element} navSubmenus All nav submenus
  */
-function buildNavDrop(navElement) {
+function buildNavDrop(navElement, navSubmenus) {
   if (!navElement.querySelector('ul')) {
     return;
   }
@@ -133,8 +137,13 @@ function buildNavDrop(navElement) {
   navDropIcon.innerHTML = `<svg role="img" size="md" aria-hidden="true">
     <use href="#chevron_right"></use>
   </svg>`;
-
   navElement.append(navDropIcon);
+
+  navElement.addEventListener('click', () => {
+    const expanded = navElement.getAttribute('aria-expanded') === 'true';
+    toggleAllNavSubmenus(navSubmenus);
+    navElement.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  });
 }
 
 /**
@@ -182,17 +191,7 @@ export default async function decorate(block) {
 
   const navSubmenus = nav.querySelectorAll('.nav-submenu');
   navSubmenus.forEach((submenu) => {
-    submenu.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navDrop) => {
-      buildNavDrop(navDrop);
-
-      navDrop.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navDrop.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSubmenus(navSubmenus);
-          navDrop.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
-    });
+    submenu.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navDrop) => buildNavDrop(navDrop, navSubmenus));
   });
 
   // hamburger for mobile
