@@ -98,7 +98,7 @@ function toggleMenu(nav, submenus, forceExpanded = null) {
 
   if (isDesktop.matches) {
     // On desktop, we should not keep focus on the whole navigation
-    nav.removeAttribute('tabindex', -1);
+    nav.removeAttribute('tabindex', '-1');
 
     navDrops.forEach((drop) => {
       if (!drop.hasAttribute('tabindex')) {
@@ -108,7 +108,7 @@ function toggleMenu(nav, submenus, forceExpanded = null) {
     });
   } else {
     // On mobile, keeps focus on the whole navigation for navigating through its content
-    nav.setAttribute('tabindex', -1);
+    nav.setAttribute('tabindex', '-1');
 
     navDrops.forEach((drop) => {
       drop.removeAttribute('tabindex');
@@ -134,9 +134,16 @@ function toggleMenu(nav, submenus, forceExpanded = null) {
  * @param {Element} navSubmenus All nav submenus
  */
 function buildNavDrop(navElement, navSubmenus) {
-  if (!navElement.querySelector('ul')) {
+  const navElementMenu = navElement.querySelector('ul');
+
+  if (!navElementMenu) {
     return;
   }
+
+  navElementMenu.classList.add('nav-drop-menu');
+  // Helps keeping the navigation open when navigating through sub menus contents
+  navElementMenu.setAttribute('tabindex', '-1');
+  navElementMenu.addEventListener('click', (event) => event.stopPropagation());
 
   navElement.classList.add('nav-drop');
 
