@@ -141,8 +141,6 @@ function buildNavDrop(navElement, navSubmenus) {
   }
 
   navElementMenu.classList.add('nav-drop-menu');
-  // Helps keeping the navigation open when navigating through sub menus contents
-  navElementMenu.setAttribute('tabindex', '-1');
   navElementMenu.addEventListener('click', (event) => event.stopPropagation());
 
   navElement.classList.add('nav-drop');
