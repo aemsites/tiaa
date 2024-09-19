@@ -16,7 +16,6 @@ header .nav-wrapper nav {
     'triage triage triage';
   grid-template-columns: auto 1fr auto;
   grid-template-rows: var(--nav-height) auto;
-  align-items: center;
   gap: 0 24px;
   color: var(--qui-alias-color-text-default);
   font-family: var(--body-font-family);
@@ -34,6 +33,7 @@ header .nav-wrapper nav[aria-expanded='true'] {
       'brand main main search tools login';
     grid-template-columns: auto;
     grid-template-rows: auto var(--nav-height);
+    align-items: center;
   }
 
   header .nav-wrapper nav[aria-expanded='true'] {
