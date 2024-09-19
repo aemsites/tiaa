@@ -179,7 +179,7 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage); // LCP
-    loadEthosJS();
+    loadEthosJS(); // load Ethos after LCP
   }
 
   sampleRUM.enhance();
