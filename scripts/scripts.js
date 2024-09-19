@@ -159,11 +159,12 @@ export function decorateMain(main) {
   decorateTIAAContent(main);
 }
 
-function loadEthosDS() {
-  loadScript('lib/ethos/js/runtime.js', { deffer: '' });
-  loadScript('lib/ethos/js/polyfills.js', { deffer: '' });
-  loadScript('lib/ethos/js/main.js', { deffer: '' });
-  loadScript('lib/ethos/js/common.js', { deffer: '' });
+async function loadEthosJS() {
+  await loadScript(`${window.hlx.codeBasePath}/scripts/ethos-config.js`);
+  loadScript(`${window.hlx.codeBasePath}/lib/ethos/js/runtime.js`, { deffer: '' });
+  loadScript(`${window.hlx.codeBasePath}/lib/ethos/js/polyfills.js`, { deffer: '' });
+  loadScript(`${window.hlx.codeBasePath}/lib/ethos/js/main.js`, { deffer: '' });
+  loadScript(`${window.hlx.codeBasePath}/lib/ethos/js/common.js`, { deffer: '' });
 }
 
 /**
@@ -178,7 +179,7 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage); // LCP
-    loadEthosDS();
+    loadEthosJS();
   }
 
   sampleRUM.enhance();
