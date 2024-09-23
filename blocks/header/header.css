@@ -16,15 +16,15 @@ header .nav-wrapper nav {
     'triage triage triage';
   grid-template-columns: auto 1fr auto;
   grid-template-rows: var(--nav-height) auto;
-  gap: 0 24px;
   padding: var(--qui-spacing-0) var(--qui-spacing-16);
   color: var(--qui-alias-color-text-default);
   font-family: var(--body-font-family);
 }
 
 header .nav-wrapper nav[aria-expanded='true'] {
-  overflow-y: auto;
   min-height: 100dvh;
+  grid-template-rows: var(--nav-height) auto auto 1fr auto;
+  overflow-y: auto;
 }
 
 @media (width >= 900px) {
@@ -250,6 +250,8 @@ header nav .nav-triage {
 
 header nav[aria-expanded='true'] .nav-triage {
   display: block;
+  margin-top: auto;
+  padding-bottom: var(--qui-spacing-48);
 }
 
 @media (width >= 900px) {
@@ -335,6 +337,11 @@ header nav .nav-tools {
 
 header nav[aria-expanded='true'] .nav-tools {
   display: block;
+  margin-top: 48px;
+}
+
+header nav .nav-tools .button-container + .button-container {
+  margin-top: 16px;
 }
 
 header nav .nav-tools .qui-cta {
@@ -360,6 +367,7 @@ header nav .nav-login {
 
 header nav[aria-expanded='true'] .nav-login {
   display: block;
+  margin-top: 16px;
 }
 
 header nav .nav-login .qui-cta {
