@@ -181,6 +181,10 @@ header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul {
   overflow-y: auto;
 }
 
+header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul:not(:has(ul)) > li:not(:first-child):nth-child(3n + 1) {
+  margin-top: 48px;
+}
+
 header nav .nav-submenu .nav-drop .qui-icon {
   margin-left: auto;
 }
@@ -218,8 +222,17 @@ header nav .nav-submenu .nav-drop .qui-icon {
     white-space: initial;
   }
 
+  header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul:not(:has(ul)) {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+
   header nav .nav-submenu .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
+  }
+
+  header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul:not(:has(ul)) > li:not(:first-child):nth-child(3n + 1) {
+    margin-top: 0;
   }
 }
 
