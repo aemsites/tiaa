@@ -383,3 +383,84 @@ main .section.highlight {
       padding: var(--qui-spacing-0);
   }
 }
+
+main > .section.two-columns {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+main > .section.two-columns > div {
+    display: flex;
+    flex-direction: column;
+}
+
+main > .section.two-columns > .default-content-wrapper > .container p {
+    font-family: var(--qui-alias-typography-body-regular-1-font-fontFamily);
+    font-weight: var(--qui-alias-typography-body-regular-1-font-fontWeight);
+    letter-spacing: var(--qui-alias-typography-body-regular-1-font-letterSpacing);
+    line-height: var(--qui-alias-typography-body-regular-1-font-lineHeight);
+    text-transform: var(--qui-alias-typography-body-regular-1-font-textCase);
+    font-size: var(--qui-alias-typography-body-regular-1-font-size-breakpoint-xs)
+  }
+
+  @media(min-width: 320px) {
+    main > .section.two-columns > .default-content-wrapper > .container p {
+        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-xs)
+    }
+  }
+
+  @media(min-width: 600px) {
+    main > .section.two-columns > .default-content-wrapper > .container p {
+        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-sm)
+    }
+  }
+
+  @media(min-width: 960px) {
+    main > .section.two-columns > .default-content-wrapper > .container p {
+        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-md)
+    }
+  }
+
+  @media(min-width: 1280px) {
+    main > .section.two-columns > .default-content-wrapper > .container p {
+        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-lg)
+    }
+  }
+
+  @media(min-width: 1440px) {
+    main > .section.two-columns > .default-content-wrapper > .container p {
+        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-xl)
+    }
+  }
+
+@media (width >= 900px) {
+    main > .section.two-columns {
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    main > .section.two-columns > div {
+        flex-grow: 1;
+        flex-basis: 0;
+        flex-shrink: 1;
+        order: unset;
+        box-sizing:border-box;
+        padding-left: 0px;
+        padding-right: 0px;
+        max-width: 640px;
+    }
+
+    main > .section.two-columns > .default-content-wrapper > .container {
+        padding-left: 40px;
+        padding-right: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+@media (width >= 1440px) {
+    main > .section.two-columns {
+        max-width: 2000px;
+    }
+}

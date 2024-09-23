@@ -1,0 +1,126 @@
+.stackcard:empty { --stackcard-children: 0 }
+.stackcard:has(> :nth-child(1):last-child) { --stackcard-children: 1 }
+.stackcard:has(> :nth-child(2):last-child) { --stackcard-children: 2 }
+.stackcard:has(> :nth-child(3):last-child) { --stackcard-children: 3 }
+.stackcard:has(> :nth-child(4):last-child) { --stackcard-children: 4 }
+.stackcard:has(> :nth-child(5):last-child) { --stackcard-children: 5 }
+.stackcard:has(> :nth-child(6):last-child) { --stackcard-children: 6 }
+.stackcard:has(> :nth-child(7):last-child) { --stackcard-children: 7 }
+.stackcard:has(> :nth-child(8):last-child) { --stackcard-children: 8 }
+.stackcard:has(> :nth-child(9):last-child) { --stackcard-children: 9 }
+.stackcard:has(> :nth-child(10)) { --stackcard-children: 10 }
+
+.stackcard {
+    padding-bottom: calc(var(--stackcard-children) * 88px - 88px);
+}
+
+.ethos-2-theme .container.stackcard {
+    padding-bottom: calc(var(--stackcard-children) * 88px - 88px);
+}
+
+.stackcard > div:nth-child(1) { --stackcard-nth-child: 1 }
+.stackcard > div:nth-child(2) { --stackcard-nth-child: 2 }
+.stackcard > div:nth-child(3) { --stackcard-nth-child: 3 }
+.stackcard > div:nth-child(4) { --stackcard-nth-child: 4 }
+.stackcard > div:nth-child(5) { --stackcard-nth-child: 5 }
+.stackcard > div:nth-child(6) { --stackcard-nth-child: 6 }
+.stackcard > div:nth-child(7) { --stackcard-nth-child: 7 }
+.stackcard > div:nth-child(8) { --stackcard-nth-child: 8 }
+.stackcard > div:nth-child(9) { --stackcard-nth-child: 9 }
+.stackcard > div:nth-child(10) { --stackcard-nth-child: 10 }
+
+.stackcard.laurel-palette{
+    background-color: unset;
+}
+
+.stackcard.laurel-palette > div {
+    /*background-color: var(--qui-alias-color-background-default);*/
+    background-color: var(--qui-components-card-color-card-container-palette-bg);
+}
+
+/* stackcard-row */
+/* stackcard-qui-stack-card */
+.stackcard > div {
+    transform: translateY(calc(var(--stackcard-nth-child) * 88px - 88px));
+    height: 562px;
+    border-radius: var(--qui-spacing-72) var(--qui-border-radius-0) var(--qui-border-radius-0) var(--qui-border-radius-0);
+}
+
+@media (width >= 900px) {
+    .stackcard > div {
+        overflow: hidden;
+        transition: 1s all ease;
+        position: sticky;
+        top: 64px;
+    }
+}
+
+@media (width >= 1024px) {
+    .stackcard > div {
+        top: 80px;
+    }
+}
+
+.stackcard > div:first-child {
+    margin-top: 0px;
+}
+
+.stackcard > div:not(:first-child) {
+    margin-top: -200px;
+    z-index: 1;
+}
+
+/* stackcard-wrapper */
+/* stackcard-qui-enhanced-card */
+.stackcard > div > div {
+    padding: var(--qui-spacing-32) var(--qui-spacing-16) var(--qui-spacing-80) var(--qui-spacing-24);
+    border-radius: var(--qui-spacing-40) var(--qui-spacing-0) var(--qui-spacing-0) var(--qui-spacing-0);
+    border-top: var(--qui-border-width-1) solid rgba(255, 255, 255, .5);
+    border-left: var(--qui-border-width-1) solid rgba(255, 255, 255, .5);
+    border-bottom: 0px;
+    border-right: 0px;
+
+    background-color: var(--qui-components-card-color-card-container-palette-bg);
+    color: var(--qui-alias-color-text-default);
+
+    overflow: hidden;
+
+    display: block;
+    word-break: var(--qui-property-unset);
+    overflow-wrap: var(--qui-line-height-normal);
+}
+
+@media (width >= 960px) {
+    .stackcard > div > div {
+        padding: var(--qui-spacing-56) var(--qui-spacing-80) 10rem var(--qui-spacing-40);
+        border-radius: var(--qui-spacing-72) var(--qui-border-radius-0) var(--qui-border-radius-0) var(--qui-border-radius-0);
+    }
+}
+
+/* stackcard-content */
+@media (width >= 960px) {
+    .stackcard > div > div > div {
+        max-width: 628px;
+        min-width: 320px;
+    }
+}
+
+@media (width < 960px) {
+    .qui-stack-card-eyebrow {
+        margin-bottom: var(--qui-spacing-16) !important;
+    }
+
+    .qui-stack-card-title {
+        margin-bottom: var(--qui-spacing-8) !important;
+    }
+}
+
+@media (width >= 960px) {
+    .qui-stack-card-eyebrow {
+        margin-bottom: var(--qui-spacing-24) !important;
+    }
+
+    .qui-stack-card-description {
+        margin-top: var(--qui-spacing-8) !important;
+    }
+}
