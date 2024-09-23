@@ -90,56 +90,62 @@ function openInSameTab(url) {
   );
 }
 
+function addIconForExternalLinks(a) {
+  const openInNewTab = openInSameTab(a.href);
+
+  const cta = domEl(
+    'qui-wc-cta',
+    {
+      'cta-type':
+        'link',
+      href: a.href,
+      size: 'medium',
+      class: 'qui-cta',
+    },
+  );
+
+  if (!openInNewTab) {
+    a.setAttribute('target', '_blank');
+    cta.setAttribute('target', '_blank');
+    if (!isPdf(a.href)) {
+      a.title += ' Opens in a new tab';
+      a.appendChild(span({ class: 'icon icon-ethos-launch' }));
+    } else {
+      a.title += ' Opens PDF';
+      a.appendChild(span({ class: 'icon icon-ethos-document_outline' }));
+    }
+  }
+
+  a.setAttribute('aria-label', a.title);
+  cta.setAttribute('qui-aria-label', a.title);
+
+  if (a.classList.contains('button')) {
+    cta.setAttribute('cta-appearance', 'button');
+    a.setAttribute('cta-appearance', 'button');
+    a.setAttribute('mat-button', true);
+
+    const aClass = ['mat-flat-button', 'mat-primary'];
+    if (a.classList.contains('primary')) {
+      cta.setAttribute('variant', 'flat');
+    } else {
+      cta.setAttribute('variant', 'stroke');
+      aClass.push('mat-stroked-button');
+    }
+    a.className = aClass.join(' ');
+  } else {
+    a.setAttribute('cta-appearance', 'link');
+    cta.setAttribute('cta-appearance', 'link');
+  }
+
+  a.replaceWith(cta);
+  cta.appendChild(a);
+}
+
 function decorateTIAAButtons(main) {
   main.querySelectorAll('a').forEach((a) => {
-    const openInNewTab = openInSameTab(a.href);
-
-    const cta = domEl(
-      'qui-wc-cta',
-      {
-        'cta-type':
-        'link',
-        href: a.href,
-        size: 'medium',
-        class: 'qui-cta',
-      },
-    );
-
-    if (!openInNewTab) {
-      a.setAttribute('target', '_blank');
-      cta.setAttribute('target', '_blank');
-      if (!isPdf(a.href)) {
-        a.title += ' Opens in a new tab';
-        a.appendChild(span({ class: 'icon icon-ethos-launch' }));
-      } else {
-        a.title += ' Opens PDF';
-        a.appendChild(span({ class: 'icon icon-ethos-document_outline' }));
-      }
+    if (a.getElementsByClassName('icon').length === 0) {
+      addIconForExternalLinks(a);
     }
-
-    a.setAttribute('aria-label', a.title);
-    cta.setAttribute('qui-aria-label', a.title);
-
-    if (a.classList.contains('button')) {
-      cta.setAttribute('cta-appearance', 'button');
-      a.setAttribute('cta-appearance', 'button');
-      a.setAttribute('mat-button', true);
-
-      const aClass = ['mat-flat-button', 'mat-primary'];
-      if (a.classList.contains('primary')) {
-        cta.setAttribute('variant', 'flat');
-      } else {
-        cta.setAttribute('variant', 'stroke');
-        aClass.push('mat-stroked-button');
-      }
-      a.className = aClass.join(' ');
-    } else {
-      a.setAttribute('cta-appearance', 'link');
-      cta.setAttribute('cta-appearance', 'link');
-    }
-
-    a.replaceWith(cta);
-    cta.appendChild(a);
   });
 }
 
