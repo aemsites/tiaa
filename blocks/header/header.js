@@ -129,6 +129,32 @@ function toggleMenu(nav, submenus, forceExpanded = null) {
 }
 
 /**
+ * Builds button for toggling off the second level of mobile navigation
+ * @param {Element} navDrop The target nav drop
+ * @param {Element} navDropMenu The target nav drop menu
+ */
+function buildNavDropMenuMobileBackButton(navDrop, navDropMenu) {
+  const mobileBackButton = document.createElement('li');
+  mobileBackButton.classList.add('nav-drop-menu-exit');
+
+  const mobileBackButtonIcon = document.createElement('qui-ng-icon');
+  mobileBackButtonIcon.classList.add('qui-icon');
+  // svgs cannot be created with document.createElement
+  mobileBackButtonIcon.innerHTML = `<svg role="img" size="md" aria-hidden="true">
+    <use href="#chevron_left"></use>
+  </svg>`;
+
+  const label = document.createElement('span');
+  // TODO: Get content from placeholders excel (https://www.aem.live/docs/placeholders) or nav document
+  label.textContent = 'Back to main menu';
+
+  mobileBackButton.append(mobileBackButtonIcon, label);
+  mobileBackButton.addEventListener('click', () => navDrop.setAttribute('aria-expanded', 'false'));
+
+  navDropMenu.prepend(mobileBackButton);
+}
+
+/**
  * Builds navigation drop elements, which can open a second level of navigation
  * @param {Element} navElement The target navigation element
  * @param {Element} navSubmenus All nav submenus
@@ -142,6 +168,7 @@ function buildNavDrop(navElement, navSubmenus) {
 
   navElementMenu.classList.add('nav-drop-menu');
   navElementMenu.addEventListener('click', (event) => event.stopPropagation());
+  buildNavDropMenuMobileBackButton(navElement, navElementMenu);
 
   navElement.classList.add('nav-drop');
 
