@@ -17,6 +17,7 @@ header .nav-wrapper nav {
   grid-template-columns: auto 1fr auto;
   grid-template-rows: var(--nav-height) auto;
   gap: 0 24px;
+  padding: var(--qui-spacing-0) var(--qui-spacing-16);
   color: var(--qui-alias-color-text-default);
   font-family: var(--body-font-family);
 }
@@ -34,6 +35,7 @@ header .nav-wrapper nav[aria-expanded='true'] {
     grid-template-columns: auto;
     grid-template-rows: auto var(--nav-height);
     align-items: center;
+    padding: var(--qui-spacing-0) var(--qui-spacing-0);
   }
 
   header .nav-wrapper nav[aria-expanded='true'] {
@@ -70,6 +72,7 @@ header nav .nav-hamburger {
   height: 22px;
   display: flex;
   align-items: center;
+  align-self: center;
 }
 
 header nav .nav-hamburger button {
@@ -152,6 +155,8 @@ header nav .nav-submenu ul {
 }
 
 header nav .nav-submenu ul > li {
+  padding-top: 8px;
+  padding-bottom: 8px;
   font-weight: 500;
 }
 
@@ -169,11 +174,13 @@ header nav .nav-submenu .nav-drop > ul {
 
 header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   position: absolute;
   inset: var(--nav-height) 0 0;
   z-index: 1;
   background-color: var(--background-color);
+  padding: var(--qui-spacing-0) var(--qui-spacing-16);
+  overflow-y: auto;
 }
 
 header nav .nav-submenu .nav-drop .qui-icon {
@@ -273,6 +280,7 @@ header nav[aria-expanded='true'] .nav-triage {
 header nav .nav-brand {
   grid-area: brand;
   text-align: center;
+  align-self: center;
 }
 
 header nav .nav-brand .icon-tiaa-brand-logo {
@@ -316,6 +324,7 @@ header nav[aria-expanded='true'] .nav-main {
 /* search */
 header nav .nav-search {
   grid-area: search;
+  align-self: center;
 }
 
 /* tools */
