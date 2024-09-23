@@ -28,19 +28,17 @@ header .nav-wrapper nav[aria-expanded='true'] {
 }
 
 @media (width >= 900px) {
-  header .nav-wrapper nav {
-    grid-template:
-      'triage triage triage triage triage triage'
-      'brand main main search tools login';
-    grid-template-columns: auto;
-    grid-template-rows: auto var(--nav-height);
-    align-items: center;
-    padding: var(--qui-spacing-0) var(--qui-spacing-0);
-  }
-
   header .nav-wrapper nav[aria-expanded='true'] {
     position: relative;
     min-height: 0;
+    grid-template:
+      'triage triage triage triage triage triage'
+      'brand main main search tools login';
+    grid-template-columns: auto 1fr auto auto auto;
+    grid-template-rows: auto var(--nav-height);
+    gap: 0 var(--qui-spacing-16);
+    align-items: center;
+    padding: var(--qui-spacing-0) var(--qui-spacing-0);
     overflow: visible;
   }
 }
@@ -190,6 +188,8 @@ header nav .nav-submenu .nav-drop .qui-icon {
 @media (width >= 900px) {
   header nav .nav-submenu .nav-drop {
     cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   header nav .nav-submenu .nav-drop .qui-icon {
@@ -290,6 +290,13 @@ header nav .nav-brand .icon-tiaa-brand-logo {
   height: 2rem;
 }
 
+@media (width >= 900px) {
+  header nav .nav-brand {
+    margin-left: var(--qui-spacing-40);
+    margin-right: var(--qui-spacing-16);
+  }
+}
+
 /* main */
 header nav .nav-main {
   display: none;
@@ -351,7 +358,15 @@ header nav .nav-tools .qui-cta {
 @media (width >= 900px) {
   header nav .nav-tools .default-content-wrapper {
     display: flex;
-    gap: 1rem;
+    gap: var(--qui-spacing-16);
+  }
+
+  header nav[aria-expanded='true'] .nav-tools {
+    margin-top: 0;
+  }
+  
+  header nav .nav-tools .button-container + .button-container {
+    margin-top: 0;
   }
 
   header nav .nav-tools .qui-cta {
@@ -375,6 +390,11 @@ header nav .nav-login .qui-cta {
 }
 
 @media (width >= 900px) {
+  header nav[aria-expanded='true'] .nav-login {
+    margin-top: 0;
+    margin-right: var(--qui-spacing-40);
+  }
+
   header nav .nav-login .qui-cta {
     width: auto;
   }
