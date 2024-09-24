@@ -440,6 +440,7 @@ function decorateIcon(span, prefix = '', alt = '') {
       <use href="#${sanitiseIconName(ethosIconName)}"></use>
     </svg>`;
 
+    // keep additional classes, if any
     quiIcon.classList.add(...[...span.classList].slice(2));
     span.replaceWith(quiIcon);
     return;
