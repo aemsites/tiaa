@@ -275,13 +275,13 @@ header nav .nav-submenu .nav-drop-menu .nav-drop-menu-exit {
   font-weight: var(--qui-components-link-typography-link-standalone-rg-fontWeight);
 }
 
-header nav .nav-drop-menu .nav-drop-menu-exit .qui-icon {
+header nav .nav-submenu .nav-drop-menu .nav-drop-menu-exit .qui-icon {
   margin-left: initial;
   margin-right: 6px;
 }
 
 @media (width >= 900px) {
-  header nav .nav-drop-menu .nav-drop-menu-exit {
+  header nav .nav-submenu .nav-drop-menu .nav-drop-menu-exit {
     display: none;
   }
 }
