@@ -28,7 +28,7 @@ export default function decorate(block) {
     column.classList.add('qui-expanding-mc-item');
     if (index === 0) { column.classList.add('open'); }
 
-    column.addEventListener('mouseover', () => {
+    column.addEventListener('mouseenter', () => {
       expandColumn(column, columns);
     });
 
