@@ -1,4 +1,4 @@
-function decoratestackcomponentContent(div) {
+function decorateStackComponentContent(div) {
   const content = div;
   if (content) {
     // first child
@@ -37,7 +37,7 @@ export default function decorate(block) {
       column.parentNode.insertBefore(wrapper, column);
       wrapper.appendChild(column);
       column.classList.add('stackcomponent-content');
-      decoratestackcomponentContent(column);
+      decorateStackComponentContent(column);
     });
   });
 }
