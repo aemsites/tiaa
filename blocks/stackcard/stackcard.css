@@ -20,8 +20,23 @@
 
 .stackcard > div {
     transform: translateY(calc(var(--stackcard-nth-child) * 88px - 88px));
-    height: 562px;
     border-radius: var(--qui-spacing-72) var(--qui-border-radius-0) var(--qui-border-radius-0) var(--qui-border-radius-0);
+}
+
+@media (width >= 900px) {
+    .stackcard > div {
+        overflow: hidden;
+        transition: 1s all ease;
+        position: sticky;
+        height: 562px;
+        top: 64px;
+    }
+}
+
+@media (width >= 1024px) {
+    .stackcard > div {
+        top: 80px;
+    }
 }
 
 .stackcard > div > div {
@@ -65,28 +80,19 @@
     background-color: var(--qui-components-card-color-card-container-palette-bg);
 }
 
-@media (width >= 900px) {
-    .stackcard > div {
-        overflow: hidden;
-        transition: 1s all ease;
-        position: sticky;
-        top: 64px;
-    }
-}
-
-@media (width >= 1024px) {
-    .stackcard > div {
-        top: 80px;
-    }
-}
-
 .stackcard > div:first-child {
     margin-top: 0;
 }
 
 .stackcard > div:not(:first-child) {
-    margin-top: -200px;
+    margin-top: -150px;
     z-index: 1;
+}
+
+@media (width >= 960px) {
+    .stackcard > div:not(:first-child) {
+        margin-top: -200px;
+    }
 }
 
 @media (width >= 960px) {
