@@ -60,7 +60,8 @@ export default function decorate(block) {
           'aria-expanded': (index === 0).toString(),
           onclick: () => expandColumn(column, columns),
           onkeydown: (e) => {
-            if (e.key === 'Enter') {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
               expandColumn(column, columns);
             }
           },
