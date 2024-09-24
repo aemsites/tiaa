@@ -66,6 +66,12 @@
   line-height: 0;
 }
 
+.expanding-multi-column .qui-expanding-mc-items .qui-expanding-mc-item .qui-expanding-mc-item-expand-icon:focus {
+  background: var(--color-text-filled-focus, #fff);
+  outline: .125rem solid var(--qui-color-blueprint-blue-500, #305af3);
+  outline-offset: .125rem;
+}
+
 .expanding-multi-column .qui-expanding-mc-items .qui-expanding-mc-item.open .qui-expanding-mc-item-expand-icon {
   display: none;
   visibility: hidden;
@@ -163,7 +169,7 @@
 
   .expanding-multi-column .qui-expanding-mc-items .qui-expanding-mc-item .qui-expanding-mc-item-image-container, 
   .expanding-multi-column .qui-expanding-mc-items .qui-expanding-mc-item .qui-expanding-mc-item-expand-icon {
-    display: none;;
+    display: none;
   }
 
   .expanding-multi-column .qui-expanding-mc-items .qui-expanding-mc-item .qui-expanding-mc-item-content {

@@ -1,6 +1,16 @@
 import { decorateIcons } from '../../scripts/aem.js';
 import { div, span } from '../../scripts/dom-helpers.js';
 
+function expandColumn(column, columns) {
+  columns.forEach((col) => {
+    col.classList.remove('open');
+    col.querySelector('.qui-expanding-mc-item-expand-icon').setAttribute('aria-expanded', 'false');
+  });
+
+  column.classList.add('open');
+  column.querySelector('.qui-expanding-mc-item-expand-icon').setAttribute('aria-expanded', 'true');
+}
+
 export default function decorate(block) {
   // this block has custom widths and paddings
   block.classList.remove('container');
@@ -43,7 +53,18 @@ export default function decorate(block) {
       div({ class: 'qui-expanding-mc-item-heading' },
         heading,
       ),
-      div({ class: 'qui-expanding-mc-item-expand-icon' },
+      div({
+        class: 'qui-expanding-mc-item-expand-icon',
+        tabindex: "0",
+        role: "button",
+        'aria-expanded': (index === 0).toString(),
+        onclick: () => expandColumn(column, columns),
+        onkeydown: (e) => {
+          if (e.key === 'Enter' ) {
+            expandColumn(column, columns);
+          }
+        }
+      },
         span({ class: 'icon icon-ethos-expand qui-expanding-mc-icon' }),
       ),
       itemContent,
