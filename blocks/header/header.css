@@ -154,7 +154,7 @@ header nav .nav-submenu ul {
   margin: 0;
 }
 
-header nav .nav-submenu .nav-drop-menu > li {
+header nav .nav-submenu .nav-drop-menu > li:has(ul) {
   font-family: var(--qui-alias-typography-heading-heading-5-font-fontFamily);
   font-size: var(--qui-alias-typography-heading-heading-5-font-size-breakpoint-xs);
   font-weight: var(--qui-alias-typography-heading-heading-5-font-fontWeight);
@@ -206,7 +206,7 @@ header nav .nav-submenu .nav-drop .qui-icon {
   margin-left: auto;
 }
 
-header nav .nav-submenu .nav-drop-menu > li:nth-child(1n + 3) {
+header nav .nav-submenu .nav-drop-menu > li:has(ul):nth-child(1n + 3) {
   margin-top: 48px;
 }
 
