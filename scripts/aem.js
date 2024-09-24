@@ -439,6 +439,8 @@ function decorateIcon(span, prefix = '', alt = '') {
     quiIcon.innerHTML = `<svg role="img" color="null" aria-hidden="true">
       <use href="#${sanitiseIconName(ethosIconName)}"></use>
     </svg>`;
+
+    quiIcon.classList.add(...[...span.classList].slice(2));
     span.replaceWith(quiIcon);
     return;
   }
