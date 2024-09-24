@@ -399,7 +399,6 @@ main > .section.two-columns > div {
         display: grid;
         gap: 20px 0;
         grid-template-columns: 1fr 1fr;
-        justify-content: center;
         align-items: start;
     }
 
@@ -411,8 +410,12 @@ main > .section.two-columns > div {
         height: 100%;
     }
 
+    main > .section.two-columns > div:nth-child(odd) {
+        justify-self: end;
+    }
+
     main > .section.two-columns > .default-content-wrapper > .container {
-        padding-left: 40px;
+        padding-left: 12px;
         padding-right: 80px;
         padding-bottom: 80px;
     }
