@@ -29,8 +29,7 @@ export default function decorate(block) {
     if (index === 0) { column.classList.add('open'); }
 
     column.addEventListener('mouseover', () => {
-      columns.forEach((col) => col.classList.remove('open'));
-      column.classList.add('open');
+      expandColumn(column, columns);
     });
 
     const heading = column.children[0];
