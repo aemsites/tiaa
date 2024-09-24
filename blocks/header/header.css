@@ -152,14 +152,33 @@ header nav .nav-submenu ul {
   margin: 0;
 }
 
+/* stylelint-disable custom-property-pattern */
 header nav .nav-submenu ul > li {
   padding-top: 8px;
   padding-bottom: 8px;
-  font-weight: 500;
+  color: var(--qui-color-union-blue-500);
+  text-decoration: none;
+  font-family: var(--qui-components-link-typography-link-standalone-rg-fontFamily);
+  font-size: var(--qui-components-link-typography-link-standalone-rg-fontSize);
+  font-weight: var(--qui-components-link-typography-link-standalone-rg-fontWeight);
+  letter-spacing: var(--qui-components-link-typography-link-standalone-rg-letterSpacing);
+  line-height: var(--qui-components-link-typography-link-standalone-rg-lineHeight);
 }
 
-header nav .nav-submenu ul > li > ul > li {
-  font-weight: 400;
+/* stylelint-enable custom-property-pattern */
+
+header nav .nav-submenu ul.nav-drop-menu > li a[cta-appearance="link"] {
+  color: inherit;
+  text-decoration: none;
+}
+
+header nav#nav .nav-submenu ul.nav-drop-menu > li .qui-cta a[cta-appearance="link"]:hover {
+  color: var(--qui-color-union-blue-500);
+  text-decoration: underline;
+}
+
+header nav .nav-submenu ul.nav-drop-menu > li a[cta-appearance="link"] .qui-icon svg {
+  color: var(--qui-color-union-blue-500);
 }
 
 header nav .nav-submenu .nav-drop {
@@ -182,7 +201,7 @@ header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul {
 }
 
 header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul:not(:has(ul)) > li:not(:first-child):nth-child(3n + 1) {
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 header nav .nav-submenu .nav-drop .qui-icon {
@@ -212,7 +231,7 @@ header nav .nav-submenu .nav-drop .qui-icon {
 
   header nav .nav-submenu .default-content-wrapper > ul > li > ul > li > ul {
     flex-flow: column wrap;
-    gap: 1em;
+    gap: .25rem;
   }
 
   header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul {
@@ -225,10 +244,6 @@ header nav .nav-submenu .nav-drop .qui-icon {
   header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul:not(:has(ul)) {
     display: grid;
     grid-template-columns: repeat(3, auto);
-  }
-
-  header nav .nav-submenu .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
   }
 
   header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul:not(:has(ul)) > li:not(:first-child):nth-child(3n + 1) {
@@ -288,6 +303,11 @@ header nav[aria-expanded='true'] .nav-triage {
     left: initial;
     padding: 1rem 3rem;
     background-color: var(--qui-color-warm-gray-100);
+  }
+
+  header nav .nav-submenu.nav-triage ul > li {
+    padding: var(--qui-spacing-0);
+    font-size: var(--qui-typography-font-size-14);
   }
 }
 
