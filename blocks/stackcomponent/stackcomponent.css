@@ -1,17 +1,13 @@
 .stackcomponent-wrapper {
     margin-top: 0;
-    transform: translateY(calc(var(--stackcomponent-nth-child) * 88px - 88px));
 }
 
 @media (width >= 900px) {
-   .stackcomponent-wrapper {
+   .stackcomponent-wrapper > .container {
         overflow: hidden;
         transition: 1s all ease;
         position: sticky;
         top: 144px;
-    }
-
-    .stackcomponent-wrapper > .container {
         padding-left: 40px;
         padding-right: 80px;
         padding-bottom: 80px;
@@ -19,7 +15,7 @@
 }
 
 @media (width >= 1024px) {
-   .stackcomponent-wrapper {
+   .stackcomponent-wrapper > .container {
         top: 160px;
     }
 }

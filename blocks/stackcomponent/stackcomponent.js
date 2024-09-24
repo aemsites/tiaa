@@ -32,8 +32,7 @@ export default function decorate(block) {
     columns.forEach((column) => {
       // create a wrapper div and move the column inside it
       const wrapper = document.createElement('div');
-      wrapper.classList.add('stackcomponent-wrapper');
-      wrapper.classList.add('stackcomponent-qui-enhanced-card');
+      wrapper.classList.add('stackcomponent-content-wrapper');
       column.parentNode.insertBefore(wrapper, column);
       wrapper.appendChild(column);
       column.classList.add('stackcomponent-content');
