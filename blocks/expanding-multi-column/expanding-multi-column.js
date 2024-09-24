@@ -53,18 +53,19 @@ export default function decorate(block) {
       div({ class: 'qui-expanding-mc-item-heading' },
         heading,
       ),
-      div({
-        class: 'qui-expanding-mc-item-expand-icon',
-        tabindex: "0",
-        role: "button",
-        'aria-expanded': (index === 0).toString(),
-        onclick: () => expandColumn(column, columns),
-        onkeydown: (e) => {
-          if (e.key === 'Enter' ) {
-            expandColumn(column, columns);
-          }
-        }
-      },
+      div(
+        {
+          class: 'qui-expanding-mc-item-expand-icon',
+          tabindex: '0',
+          role: 'button',
+          'aria-expanded': (index === 0).toString(),
+          onclick: () => expandColumn(column, columns),
+          onkeydown: (e) => {
+            if (e.key === 'Enter') {
+              expandColumn(column, columns);
+            }
+          },
+        },
         span({ class: 'icon icon-ethos-expand qui-expanding-mc-icon' }),
       ),
       itemContent,
