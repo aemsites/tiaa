@@ -17,7 +17,7 @@ export default function decorate(block) {
   columns.forEach((column, index) => {
     column.classList.add('qui-expanding-mc-item');
     if (index === 0) { column.classList.add('open'); }
-    
+
     column.addEventListener('mouseover', () => {
       columns.forEach((col) => col.classList.remove('open'));
       column.classList.add('open');
