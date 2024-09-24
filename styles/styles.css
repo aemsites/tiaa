@@ -385,53 +385,14 @@ main .section.highlight {
 }
 
 main > .section.two-columns {
-    padding-bottom: 0px;
-    margin-bottom: 0px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 main > .section.two-columns > div {
     display: flex;
     flex-direction: column;
 }
-
-main > .section.two-columns > .default-content-wrapper > .container p {
-    font-family: var(--qui-alias-typography-body-regular-1-font-fontFamily);
-    font-weight: var(--qui-alias-typography-body-regular-1-font-fontWeight);
-    letter-spacing: var(--qui-alias-typography-body-regular-1-font-letterSpacing);
-    line-height: var(--qui-alias-typography-body-regular-1-font-lineHeight);
-    text-transform: var(--qui-alias-typography-body-regular-1-font-textCase);
-    font-size: var(--qui-alias-typography-body-regular-1-font-size-breakpoint-xs)
-  }
-
-  @media(min-width: 320px) {
-    main > .section.two-columns > .default-content-wrapper > .container p {
-        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-xs)
-    }
-  }
-
-  @media(min-width: 600px) {
-    main > .section.two-columns > .default-content-wrapper > .container p {
-        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-sm)
-    }
-  }
-
-  @media(min-width: 960px) {
-    main > .section.two-columns > .default-content-wrapper > .container p {
-        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-md)
-    }
-  }
-
-  @media(min-width: 1280px) {
-    main > .section.two-columns > .default-content-wrapper > .container p {
-        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-lg)
-    }
-  }
-
-  @media(min-width: 1440px) {
-    main > .section.two-columns > .default-content-wrapper > .container p {
-        font-size:var(--qui-alias-typography-body-regular-1-font-size-breakpoint-xl)
-    }
-  }
 
 @media (width >= 900px) {
     main > .section.two-columns {
@@ -442,13 +403,11 @@ main > .section.two-columns > .default-content-wrapper > .container p {
     }
 
     main > .section.two-columns > div {
-        flex-grow: 1;
-        flex-basis: 0;
-        flex-shrink: 1;
+        flex: 1 1 0;
         order: unset;
         box-sizing:border-box;
-        padding-left: 0px;
-        padding-right: 0px;
+        padding-left: 0;
+        padding-right: 0;
         max-width: 640px;
     }
 

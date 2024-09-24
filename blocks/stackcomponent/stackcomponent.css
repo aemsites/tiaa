@@ -1,5 +1,5 @@
 .stackcomponent-wrapper {
-    margin-top: 0px;
+    margin-top: 0;
     transform: translateY(calc(var(--stackcomponent-nth-child) * 88px - 88px));
 }
 
