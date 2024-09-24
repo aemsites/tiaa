@@ -257,6 +257,10 @@ header nav .nav-submenu ul.nav-drop-menu > li a[cta-appearance="link"] .qui-icon
     white-space: initial;
   }
 
+  header nav .nav-submenu .nav-drop-menu > li:has(ul):nth-child(1n + 3) {
+    margin-top: 0;
+  }
+
   header nav .nav-submenu .nav-drop[aria-expanded='true'] > ul:not(:has(ul)) {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -323,6 +327,10 @@ header nav[aria-expanded='true'] .nav-triage {
 
   header nav .nav-triage .default-content-wrapper > ul > li {
     padding: var(--qui-spacing-0);
+    font-size: var(--qui-typography-font-size-14);
+  }
+
+  header nav .nav-submenu.nav-triage .nav-drop-menu > li > ul > li {
     font-size: var(--qui-typography-font-size-14);
   }
 }
