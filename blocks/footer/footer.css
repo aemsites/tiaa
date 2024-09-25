@@ -9,6 +9,54 @@ footer .footer > div {
   padding: 40px 24px 24px;
 }
 
+footer .block > div {
+    display: grid;
+    grid-template-columns: 33.3%;
+    gap: 10px;
+    grid-auto-rows: minmax(50px, auto);
+}
+
+.footer-col1-row1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.footer-col1-row2 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.footer-col1-row3 {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.footer-col2 {
+    grid-column: 2;
+    grid-row: span 3;
+}
+
+.footer-col3 {
+    grid-column: 3;
+    grid-row: span 3;
+}
+
+.footer-row4 {
+  grid-column: span 3;
+  grid-row: 4;
+  padding-top: 24px;
+}
+
+.footer-row5 {
+  grid-column: span 3;
+  grid-row: 5;
+}
+
+.footer-row6 {
+  grid-column: span 3;
+  grid-row: 6;
+}
+
 footer .footer p {
   margin: 0;
 }
@@ -18,3 +66,54 @@ footer .footer p {
     padding: 40px 32px 24px;
   }
 }
+
+.icon-social-media {
+    margin-right: 30px;
+    height: 20px;
+    width: 20px;
+}
+
+.icon-social-media > img {
+    height: 20px;
+    width: 20px;
+}
+
+footer .icon-tiaa-brand-logo img {
+    width: 135px;
+    height: 35px;
+    margin-bottom: 3rem !important;
+}
+
+footer .icon-apple-app-store img {
+    margin-top: 1rem;
+    width: 135px;
+    height: 45px;
+}
+
+footer .icon-google-play-store img {
+    margin-top: 1rem;
+    margin-left: 120px;
+    width: 162px;
+    height: 45px;
+}
+
+footer .footer-row4 ul {
+    box-sizing: border-box;
+    border-bottom: #dee2e6 1px solid;
+    border-top: #dee2e6 1px solid;
+    padding: 24px 0;
+}
+
+footer .footer-row4 ul > li {
+    display: inline-block;
+    text-align: left;
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+footer .footer-row4 ul > li > a {
+    color: #041459;
+    font-weight: 700;
+}
+
+

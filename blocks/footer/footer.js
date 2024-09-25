@@ -16,5 +16,16 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  footer.querySelectorAll('.footer-col1-row1 p a').forEach((e) => {
+    if (e.children.length === 0) {
+      e.classList.add(...['button', 'secondary']);
+    }
+  });
+
+  footer.querySelectorAll('.footer-col1-row3 p a span').forEach((e) => {
+    if (!(e.classList.contains('icon-apple-app-store') || e.classList.contains('icon-google-play-store'))) {
+      e.classList.add(...['icon-social-media']);
+    }
+  });
   block.append(footer);
 }
