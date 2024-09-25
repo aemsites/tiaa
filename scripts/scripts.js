@@ -98,7 +98,7 @@ function decorateTIAAButtons(main) {
       'qui-wc-cta',
       {
         'cta-type':
-        'link',
+          'link',
         href: a.href,
         size: 'medium',
         class: 'qui-cta',
@@ -108,12 +108,14 @@ function decorateTIAAButtons(main) {
     if (!openInNewTab) {
       a.setAttribute('target', '_blank');
       cta.setAttribute('target', '_blank');
-      if (!isPdf(a.href)) {
-        a.title += ' Opens in a new tab';
-        a.appendChild(span({ class: 'icon icon-ethos-launch' }));
-      } else {
-        a.title += ' Opens PDF';
-        a.appendChild(span({ class: 'icon icon-ethos-document_outline' }));
+      if (a.getElementsByClassName('icon').length === 0) {
+        if (!isPdf(a.href)) {
+          a.title += ' Opens in a new tab';
+          a.appendChild(span({ class: 'icon icon-ethos-launch' }));
+        } else {
+          a.title += ' Opens PDF';
+          a.appendChild(span({ class: 'icon icon-ethos-document_outline' }));
+        }
       }
     }
 
