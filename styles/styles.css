@@ -394,7 +394,7 @@ main > .section.two-columns > div {
     flex-direction: column;
 }
 
-@media (width >= 900px) {
+@media (width >= 960px) {
     main > .section.two-columns {
         display: grid;
         gap: 20px 0;
