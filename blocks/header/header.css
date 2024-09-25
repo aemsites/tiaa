@@ -335,6 +335,16 @@ header nav[aria-expanded='true'] .nav-triage {
   }
 }
 
+@media (width >= 1440px) {
+  header nav[aria-expanded='true'] .nav-triage {
+    padding: var(--qui-spacing-8) calc((100dvw - 1279.98px) / 2);
+  }
+
+  header nav .nav-submenu.nav-triage .nav-drop[aria-expanded='true'] > ul {
+    right: calc((100dvw - 1279.98px) / 2);
+  }
+}
+
 /* brand */
 header nav .nav-brand {
   grid-area: brand;
@@ -351,6 +361,12 @@ header nav .nav-brand .icon-tiaa-brand-logo {
   header nav .nav-brand {
     margin-left: var(--qui-spacing-40);
     margin-right: var(--qui-spacing-16);
+  }
+}
+
+@media (width >= 1440px) {
+  header nav .nav-brand {
+    margin-left: calc((100dvw - 1279.98px) / 2);
   }
 }
 
@@ -384,6 +400,13 @@ header nav[aria-expanded='true'] .nav-main {
     right: 40px;
     padding: var(--qui-spacing-40) var(--qui-spacing-80) var(--qui-spacing-48);
     background-color: var(--qui-alias-color-background-default);
+  }
+}
+
+@media (width >= 1440px) {
+  header nav .nav-submenu.nav-main .nav-drop[aria-expanded='true'] > ul {
+    left: calc((100dvw - 1279.98px) / 2);
+    right: calc((100dvw - 1279.98px) / 2);
   }
 }
 
@@ -454,5 +477,11 @@ header nav .nav-login .qui-cta {
 
   header nav .nav-login .qui-cta {
     width: auto;
+  }
+}
+
+@media (width >= 1440px) {
+  header nav[aria-expanded='true'] .nav-login {
+    margin-right: calc((100dvw - 1279.98px) / 2);
   }
 }
