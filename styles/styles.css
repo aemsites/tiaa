@@ -39,6 +39,21 @@
 
     /* nav height */
     --nav-height: 64px;
+
+    /* Non Ethos Design Tokens */
+    --qui-xs-575-below: 35.9375rem;
+    --qui-sm-576-above: 36rem;
+    --qui-md-768-above: 48rem;
+    --qui-lg-992-above: 62rem;
+    --qui-lg-1024-above: 64rem;
+    --qui-xl-1200px-above: 75rem;
+    --qui-xxl-1280px-above: 80rem;
+    --qui-xxxl-1400px-above: 87.5rem;
+    --qui-xxxxl-1600px-above: 100rem;
+    --qui-xxxxxl-1920px-above: 120rem;
+    --qui-border-radius-40: 2.5rem;
+    --qui-border-radius-60: 3.75rem;
+    --qui-spacing-1: 1rem;
 }
 
 .ethos-2-theme {
