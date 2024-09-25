@@ -2,7 +2,7 @@
     margin-top: 0;
 }
 
-@media (width >= 900px) {
+@media (width >= 960px) {
    .stackcomponent-wrapper > .container {
         overflow: hidden;
         transition: 1s all ease;
